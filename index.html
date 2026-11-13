@@ -485,11 +485,11 @@ body.hc-gate-locked{overflow:hidden!important}
       <label class="hc-entry-role"><input type="radio" name="role" value="Басқа"><span class="hc-entry-role-icon" aria-hidden="true">⋯</span> Басқа (жазыңыз)</label>
     </div></fieldset>
     <div class="hc-entry-other hc-entry-field" id="hc-entry-other-wrap" hidden><label class="hc-entry-label" for="hc-entry-other">Мәртебеңізді жазыңыз</label><input type="text" id="hc-entry-other" placeholder="Мысалы: студент, оқытушы" maxlength="60"></div>
-    <label class="hc-entry-consent"><input id="hc-entry-consent" type="checkbox" required><span>Осы браузерде атым мен мәртебемнің сақталуына келісемін. Толық телефон нөмірі сұралмайды.</span></label>
+    <label class="hc-entry-consent"><input id="hc-entry-consent" type="checkbox" required><span>Осы браузерде атым мен мәртебемнің сақталуына және Google кестесімен қосылым іске қосылғаннан кейін атым, мамандығым, WhatsApp соңғы 4 цифрым мен сайттағы әрекеттерімнің HEARTCODE әкімшісіне жіберілуіне келісемін. Толық нөмір сұралмайды.</span></label>
     <div id="hc-entry-error" class="hc-entry-error" role="alert" aria-live="polite"></div>
     <button class="hc-entry-button" type="submit">Курсқа өту &nbsp; →</button>
    </form>
-   <p class="hc-entry-privacy">ⓘ Бұл нұсқада мәліметтер Google кестесіне немесе серверге жіберілмейді. Басқа телефоннан кірген адамдардың тізімін көру үшін бөлек қосылым қажет.</p>
+   <p class="hc-entry-privacy">ⓘ Автоматты тіркеу әзірше қосылмаған. Қосылған соң келісім берген пайдаланушылардың мәліметтері ғана әкімшінің жабық Google кестесіне жіберіледі.</p>
   </div><p class="hc-entry-footer">HEARTCODE · Медициналық білім беру платформасы</p>
  </div>
 </section>
@@ -1045,6 +1045,8 @@ m10CreateQuiz(3);m10CreateQuiz(4);
 })();
 </script>
 
+<script src="analytics-config.js"></script>
+<script src="analytics.js"></script>
 <script>
 (function(){
 'use strict';
@@ -1065,7 +1067,7 @@ function updateOther(){const r=role();const yes=!!r&&r.value==='Басқа';othe
 form.querySelectorAll('input[name="role"]').forEach(el=>el.addEventListener('change',updateOther));
 digits.addEventListener('input',()=>{digits.value=digits.value.replace(/[^0-9]/g,'').slice(0,4)});
 const saved=getSaved();
-if(saved&&typeof saved.name==='string'&&saved.name.trim().length>=2&&typeof saved.role==='string'){unlock(saved.name.trim())}
+if(saved&&saved.analyticsConsent===true&&typeof saved.name==='string'&&saved.name.trim().length>=2&&typeof saved.role==='string'){unlock(saved.name.trim())}
 else {document.body.classList.add('hc-gate-locked');if(location.hash&&location.hash!=='#home')history.replaceState(null,'',location.pathname+location.search+'#home');gate.hidden=false}
 form.addEventListener('submit',event=>{
  event.preventDefault();error.classList.remove('visible');
@@ -1076,8 +1078,11 @@ form.addEventListener('submit',event=>{
  const profession=selected.value==='Басқа'?other.value.trim().replace(/\s+/g,' ').slice(0,60):selected.value;
  if(profession.length<2)return message('«Басқа» бөлімінде мәртебеңізді жазыңыз.',other);
  if(!consent.checked)return message('Жалғастыру үшін келісім ұяшығын белгілеңіз.',consent);
- // Deliberately do not store or transmit the 4 digits.
- save({name:userName,role:profession,enteredAt:new Date().toISOString()});digits.value='';unlock(userName);
+ // Only the Google collector receives the last four digits when connected.
+ // The full phone number and last four digits are never stored in this browser.
+ save({name:userName,role:profession,enteredAt:new Date().toISOString(),analyticsConsent:true});
+ try { if(window.HeartcodeAnalytics) window.HeartcodeAnalytics.onEntry({name:userName,role:selected.value,other:selected.value==='Басқа'?profession:'',last4:last4,consent:true}); } catch (_) {}
+ digits.value='';unlock(userName);
 });
 })();
 </script>
