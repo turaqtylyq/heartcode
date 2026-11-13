@@ -143,7 +143,7 @@
     var href = (el.getAttribute('href') || '').toLowerCase();
     if (/сатып ал|купить|оплат|төлеу|purchase/.test(label) || el.dataset.analytics === 'purchase') {
       event('purchase_click', routeName());
-    } else if (href.includes('wa.me/') || href.includes('whatsapp.com/') || el.dataset.analytics === 'contact') {
+    } else if (href.includes('wa.me/') || href.includes('whatsapp.com/') || href.includes('t.me/') || href.startsWith('tel:') || href.startsWith('mailto:') || el.dataset.analytics === 'contact') {
       event('contact_click', routeName());
     }
     if (href.charAt(0) === '#') {
