@@ -1,0 +1,69 @@
+name: Build HEARTCODE Tilda package
+on:
+  push:
+    paths:
+      - "tilda-heartcode/source-package.zip"
+      - ".github/workflows/heartcode-tilda-install.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: heartcode-tilda-assets
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Extract images and generate ready-to-paste Tilda HTML
+        env:
+          HC_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/heartcode-tilda-source tilda-heartcode/assets
+          unzip -q -o tilda-heartcode/source-package.zip -d /tmp/heartcode-tilda-source
+          cp /tmp/heartcode-tilda-source/assets/* tilda-heartcode/assets/
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,re
+          root=Path("tilda-heartcode")
+          src=Path("/tmp/heartcode-tilda-source/HEARTCODE_TILDA_T123_КОД_ШАБЛОН.txt").read_text(encoding="utf-8")
+          assets=sorted((root/"assets").iterdir())
+          assert len(assets)==11, f"Expected 11 assets, got {len(assets)}"
+          tilda=src
+          preview=src
+          for n,f in enumerate(assets,1):
+              placeholder=f"__HC_ASSET_{n:02}__"
+              assert placeholder in src,placeholder
+              tilda=tilda.replace(placeholder,f"https://raw.githubusercontent.com/{os.environ['HC_REPO']}/main/tilda-heartcode/assets/{f.name}")
+              preview=preview.replace(placeholder,f"assets/{f.name}")
+          assert "__HC_ASSET_" not in tilda
+          (root/"T123_READY.html").write_text(tilda,encoding="utf-8")
+          (root/"index.html").write_text('<!doctype html><html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>HEARTCODE — Тегін онлайн-сабақ</title></head><body>'+preview+'</body></html>',encoding="utf-8")
+          PY
+          cat > tilda-heartcode/README.md <<'MD'
+          # HEARTCODE — Tilda лендинг
+
+          Оригинальный учебный сайт репозитория **не изменён**. Это отдельная папка для лендинга вебинара.
+
+          1. Откройте [T123_READY.html](T123_READY.html), нажмите **Raw**, скопируйте весь код.
+          2. В Tilda: страница → блок T123 → Контент → вставьте код → Сохранить → Опубликовать.
+          3. Изображения из папки assets уже подключены по HTTPS GitHub Raw.
+          4. Проверьте опубликованную страницу на телефоне и работу кнопки регистрации.
+
+          **Важно:** подключение Google Sheets в Tilda не распространяется автоматически на формы HTML внутри T123. Для реальной записи в таблицу используйте форму Tilda или явно подключённый обработчик и проверьте тестовую отправку. WhatsApp-ссылку подключите отдельно.
+
+          HEARTCODE — Өмірді бірге құтқарайық!
+          MD
+      - name: Commit generated assets and HTML
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tilda-heartcode/assets tilda-heartcode/T123_READY.html tilda-heartcode/index.html tilda-heartcode/README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Build HEARTCODE Tilda images and ready-to-paste code"
+            git push
+          fi
