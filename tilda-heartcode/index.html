@@ -1,0 +1,703 @@
+<!doctype html><html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>HEARTCODE — Тегін онлайн-сабақ</title></head><body><style id="heartcode-hero">
+:root{--red:#ff2546;--white:#f7f9ff;font-family:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}
+html{margin:0;background:#031729}body{margin:0;min-width:0;max-width:100%;background:#031729;color:var(--white);overflow-x:clip}
+button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #a5e9ff;outline-offset:3px}
+#outer{position:relative;max-width:864px;width:100%;margin:0 auto;background:#031729;container-type:inline-size;isolation:isolate}
+#mobileArt{position:relative;width:100%;aspect-ratio:864 / 1536;min-width:0;overflow:hidden;isolation:isolate;background:#04192a}
+.layer{position:absolute;display:block;user-select:none}.decor{pointer-events:none}
+.backdrop{inset:0;z-index:0;background-image:linear-gradient(180deg,rgba(1,9,20,.12),rgba(2,21,42,.04) 65%,rgba(2,18,34,.08)),url('assets/01_hero_background.webp');background-size:cover;background-position:center top}
+.navyveil{inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,13,29,.17),transparent 55%),radial-gradient(circle at 60% 32%,transparent 0%,rgba(0,10,29,.10) 72%,rgba(1,10,23,.12) 100%)}
+.redflare{z-index:0;width:69.4cqw;height:30.1cqw;left:-28.9cqw;top:76.85cqw;background:radial-gradient(ellipse,rgba(247,18,51,.64) 0%,rgba(227,19,40,.13) 34%,transparent 70%);filter:blur(8px)}
+.redflare.two{top:123.2cqw;opacity:.8}
+.heart{z-index:1;left:49.2cqw;top:41.8cqw;width:59.5cqw;height:auto;filter:drop-shadow(0 0 7px rgba(0,194,255,.24))}
+.speaker{z-index:2;left:9.5cqw;top:74.6cqw;width:104.1cqw;height:auto;filter:drop-shadow(-16px 8px 35px rgba(0,4,19,.22))}
+.header{z-index:6;top:2.78cqw;left:4.98cqw;display:flex;align-items:center;width:89.6cqw;height:7.17cqw}
+.brand{display:flex;align-items:center;gap:1.62cqw;height:100%;white-space:nowrap}.mark{width:7.75cqw;height:7.06cqw;flex:none;filter:drop-shadow(0 0 4px rgba(255,43,80,.18))}
+.brand-name{font-size:3.93cqw;letter-spacing:-.10cqw;line-height:1;font-weight:800}
+.brand-divider{height:6.25cqw;width:1.5px;background:rgba(243,249,255,.85);margin-left:4.4cqw;margin-right:3cqw}
+.brand-note{font-size:2.08cqw;line-height:1.25;max-width:36.6cqw;letter-spacing:-.025cqw}
+.menu{position:absolute;right:-.5cqw;top:0;width:9.3cqw;height:7.64cqw;display:flex;align-items:center;justify-content:center;border:1.5px solid #ff4359;border-radius:2.55cqw;background:rgba(10,17,31,.45);box-shadow:inset 0 1px 9px rgba(255,50,71,.17),0 0 15px rgba(255,24,61,.34)}
+.menu-lines{width:4.16cqw;height:3.24cqw;display:flex;flex-direction:column;justify-content:space-between}.menu-lines span{height:3px;display:block;background:#fff;border-radius:3px}
+.pill{z-index:5;left:4.98cqw;top:17.24cqw;width:37.04cqw;height:6.83cqw;display:flex;align-items:center;justify-content:center;gap:1.38cqw;border:1.3px solid rgba(255,176,194,.9);border-radius:30px;background:linear-gradient(180deg,rgba(77,41,58,.75),rgba(27,16,34,.9));box-shadow:inset 0 0 14px rgba(255,112,143,.26),0 0 10px rgba(255,57,86,.3);font-size:2.9cqw;font-weight:700;letter-spacing:-.05cqw;white-space:nowrap}
+.pill .dot{height:1.62cqw;width:1.62cqw;flex:none;border-radius:50%;background:#ff2946;box-shadow:0 0 10px #ff1f3f}
+.title{z-index:5;left:5.2cqw;top:26.97cqw;width:89.1cqw;margin:0;font-size:7.06cqw;line-height:1.016;letter-spacing:-.23cqw;font-weight:800;text-shadow:0 1px 1px rgba(0,0,0,.11)}
+.title .red{color:var(--red);text-shadow:0 0 5px rgba(255,34,65,.15)}
+.desc{z-index:5;left:5.67cqw;top:59.14cqw;width:55cqw;margin:0;font-size:3.47cqw;line-height:1.13;letter-spacing:-.07cqw;font-weight:400}
+.facts{z-index:5;left:6.37cqw;top:79.86cqw;width:42cqw;display:flex;flex-direction:column;gap:3cqw}
+.fact{display:grid;grid-template-columns:6.13cqw 2px 1fr;align-items:center;gap:2.54cqw;min-height:6.71cqw;font-size:2.78cqw;letter-spacing:-.05cqw;line-height:1.15;white-space:nowrap}
+.fact-icon{height:6.13cqw;width:6.13cqw;display:flex;justify-content:center;align-items:center;color:#ff294a}.fact-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:3.3;stroke-linecap:round;stroke-linejoin:round}
+.fact-line{width:2px;height:5.78cqw;background:#e12649;opacity:.9}.fact:nth-child(3) .fact-line{background:#fff;opacity:.8}
+.fact-copy strong{display:block;font-weight:600}.fact-copy span{display:block;margin-top:2px;font-weight:400}
+.cta{z-index:7;position:absolute;left:3.47cqw;top:109.95cqw;width:49.77cqw;height:9.49cqw;border-radius:40px;border:1.5px solid #ff8ba1;box-shadow:inset 0 2px 5px rgba(255,255,255,.36),0 4px 16px rgba(255,23,56,.38);background:linear-gradient(180deg,#ff344f 0%,#fe1b3a 65%,#d80b2b 100%);color:#fff;text-align:left;padding:0 10.65cqw 0 3.94cqw;font-size:3.36cqw;font-weight:800;letter-spacing:-.04cqw;white-space:nowrap}
+.cta .arrow{position:absolute;right:1.38cqw;top:1.15cqw;width:6.83cqw;height:6.83cqw;border-radius:50%;background:#f1f3f7;display:grid;place-items:center;color:#bd0e27}.cta .arrow svg{width:55%;height:55%;stroke:currentColor;stroke-width:4;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.desk{position:absolute;z-index:4;left:0;right:0;bottom:0;height:7.06cqw;border-top:1px solid rgba(171,208,237,.45);background:linear-gradient(175deg,rgba(131,169,197,.62),rgba(19,67,108,.7));backdrop-filter:blur(13px);pointer-events:none}
+.dialog{position:fixed;z-index:999;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,10,25,.78);padding:18px}.dialog[open]{display:flex}.dialog-card{width:min(420px,95vw);border:1px solid #af3653;border-radius:18px;padding:24px;background:#0d2236;box-shadow:0 15px 60px rgba(0,0,0,.45);color:white}.dialog-card h2{margin:0 0 12px;font-size:24px}.dialog-card p{font-size:16px;line-height:1.5;color:#e0e7ee}.dialog-card button{border:0;background:#ff2444;color:#fff;border-radius:9px;font-weight:700;padding:12px 20px}
+@media (min-width: 900px){body{background:radial-gradient(ellipse at 70% 30%,#16334b,#020d1c 65%)}#outer{box-shadow:0 18px 100px #0009}}
+/* True phone layout: no JavaScript scaling, no horizontal overflow. All user-facing text remains readable. */
+@media (max-width:600px){
+  #mobileArt{height:880px;min-height:100svh;aspect-ratio:auto}
+  .backdrop{background-position:center center;background-size:cover}
+  .navyveil{background:linear-gradient(90deg,rgba(1,13,27,.24),transparent 90%),linear-gradient(180deg,rgba(2,15,28,.06),rgba(3,20,38,.11))}
+  .header{top:18px;left:20px;width:calc(100% - 40px);height:44px}
+  .brand{gap:8px}.mark{width:36px;height:36px}.brand-name{font-size:22px;letter-spacing:-.4px}
+  .brand-divider,.brand-note{display:none}
+  .menu{top:0;right:0;width:43px;height:43px;border-radius:13px}
+  .menu-lines{width:22px;height:16px}.menu-lines span{height:2.5px}
+  .pill{top:96px;left:20px;width:216px;height:39px;font-size:16px;letter-spacing:0;gap:8px}
+  .pill .dot{width:9px;height:9px}
+  .title{top:157px;left:20px;width:calc(100% - 40px);font-size:clamp(26px,7.8vw,33px);line-height:1.065;letter-spacing:-.65px}
+  .desc{top:313px;left:20px;width:calc(100% - 40px);max-width:330px;font-size:16px;line-height:1.3;letter-spacing:-.1px}
+  .heart{top:391px;left:auto;right:-34px;width:265px;height:auto}
+  .speaker{top:495px;left:auto;right:-58px;width:365px;height:auto;filter:drop-shadow(-9px 7px 22px rgba(0,4,19,.2))}
+  .facts{top:480px;left:20px;width:194px;gap:17px}
+  .fact{grid-template-columns:30px 2px 1fr;gap:10px;min-height:44px;font-size:14px;line-height:1.2;letter-spacing:-.1px}
+  .fact-icon{width:28px;height:28px}.fact-line{height:34px}.fact-copy span{margin-top:1px}
+  .cta{top:676px;left:20px;width:clamp(252px,71vw,300px);max-width:calc(100% - 38px);height:58px;border-radius:35px;padding:0 54px 0 16px;font-size:clamp(13.5px,3.75vw,16px);letter-spacing:-.15px;white-space:nowrap;text-align:left}
+  .cta .arrow{top:7px;right:7px;width:42px;height:42px}
+  .redflare{left:-250px;top:500px;width:500px;height:180px}.redflare.two{top:730px}
+  .desk{height:36px}
+}
+@media (max-width:359px){
+  #mobileArt{height:839px;min-height:100svh}
+  .brand-name{font-size:20px}.mark{width:32px;height:32px}
+  .pill{top:91px}.title{top:147px;font-size:25.3px;letter-spacing:-.65px}
+  .desc{top:284px;font-size:14.5px;line-height:1.28}
+  .heart{top:354px;right:-45px;width:240px}
+  .speaker{top:468px;right:-58px;width:330px}
+  .facts{top:419px;left:18px;width:171px;gap:14px}
+  .fact{font-size:12.8px;gap:8px;grid-template-columns:27px 2px 1fr}.fact-icon{width:25px;height:25px}
+  .cta{top:639px;left:18px;width:252px;max-width:calc(100% - 36px);height:56px;padding-left:15px;padding-right:50px;font-size:13.8px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
+
+/* V8: эксперт поднят выше на мобильной версии, остальной дизайн без изменений. */
+@media (max-width: 600px) {
+  .heart { top: 334px; }
+  .speaker { top: 382px; }
+  .facts { top: 415px; }
+  .cta { top: 591px; }
+}
+@media (max-width: 359px) {
+  .heart { top: 307px; }
+  .speaker { top: 362px; }
+  .facts { top: 375px; }
+  .cta { top: 547px; }
+}
+</style>
+<style id="heartcode-program">
+/* The program flows into the preceding hero. Only page two is modified. */
+#hc-program-photo {
+  position: relative; z-index: 11; width: 100%; max-width: 864px;
+  margin: -110px auto 0; isolation:isolate; color: #fff; 
+  font-family: Arial, Helvetica, sans-serif; background: #031729;
+  padding: 28px 0 0; overflow: visible;
+}
+/* Navy fade hides the edge without separating the screens. */
+#hc-program-photo::before {
+  content:""; position:absolute; z-index:-1; left:0;right:0;
+  top:-54px;height:56px;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(3,23,41,0),rgba(3,23,41,.55) 40%,#031729 100%);
+}
+#hc-program-photo .hc4-program-head {position:relative; padding:0 5.1% 17px; }
+#hc-program-photo .hc4-program-pill {
+  display:inline-flex; align-items:center; gap:9px; white-space:nowrap;
+  border:1px solid rgba(250,133,157,.66);border-radius:40px;
+  background:linear-gradient(180deg,rgba(97,64,87,.75),rgba(42,28,48,.95));
+  box-shadow:0 0 12px rgba(248,40,73,.24),inset 0 1px 9px rgba(255,122,148,.15);
+  padding:9px 16px; color:#fff;font-size:clamp(14px,2.8vw,20px);font-weight:700;
+  line-height:1.15;
+}
+#hc-program-photo .hc4-program-pill::before {
+ content:""; width:9px;height:9px;background:#fb274c;box-shadow:0 0 9px #fa3157;
+ border-radius:50%;flex:none;
+}
+#hc-program-photo .hc4-program-heading {
+  margin:18px 0 10px; color:#fff;font-size:clamp(31px,6vw,56px);
+  line-height:1.04;letter-spacing:-.8px;font-weight:800;
+}
+#hc-program-photo .hc4-program-heading span {display:block;color:#ff2949}
+#hc-program-photo .hc4-program-intro {
+  max-width:790px;margin:0;color:#f1f5fb;font-size:clamp(15px,2.6vw,22px);
+  line-height:1.36;font-weight:400;
+}
+/* Show only approved ECG cards from embedded art. No repeated logo, menu or old heading. */
+#hc-program-photo .hc4-program-art {
+  position:relative;width:100%;aspect-ratio:744 / 926;overflow:hidden;
+  background:#031729;
+}
+#hc-program-photo .hc4-program-art img {
+  position:absolute;left:0;top:0;display:block;width:100%;height:auto;
+  transform:translateY(-35.5153%);margin:0;border:0;
+}
+@media(max-width:600px){
+ #hc-program-photo{margin-top:-170px;padding-top:20px}
+ #hc-program-photo::before{top:-54px;height:56px}
+ #hc-program-photo .hc4-program-head{padding:0 20px 8px}
+ #hc-program-photo .hc4-program-pill{font-size:15px;padding:8px 13px}
+ #hc-program-photo .hc4-program-heading{font-size:clamp(27px,7.25vw,34px);letter-spacing:-.4px;margin:15px 0 11px}
+ #hc-program-photo .hc4-program-intro{font-size:clamp(14px,3.75vw,16px);line-height:1.36}
+}
+@media(max-width:359px){
+ #hc-program-photo{margin-top:-155px}
+ #hc-program-photo .hc4-program-head{padding-left:17px;padding-right:17px}
+ #hc-program-photo .hc4-program-heading{font-size:27px}
+}
+</style>
+<style id="heartcode-speaker">#heartcode-speaker-new{position:relative;isolation:isolate;width:100%;max-width:864px;margin:0 auto;overflow:hidden;color:white;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse 58% 22% at 82% 19%,rgba(27,133,188,.22),transparent 85%),radial-gradient(ellipse at 5% 65%,rgba(219,22,62,.09),transparent 42%),linear-gradient(180deg,#031729,#06233a 30%,#031729 100%)}
+#heartcode-speaker-new *{box-sizing:border-box}
+#heartcode-speaker-new .hc3-wrap{padding:25px 22px 52px;max-width:800px;margin:0 auto}
+#heartcode-speaker-new .hc3-hero{height:400px;position:relative;isolation:isolate}
+#heartcode-speaker-new .hc3-hero-glow{position:absolute;z-index:-1;right:0;top:6px;width:66%;height:88%;background:radial-gradient(circle at 66% 45%,rgba(10,119,182,.24),transparent 64%)}
+#heartcode-speaker-new .hc3-heart{position:absolute;z-index:0;width:min(60%,430px);height:auto;right:-18px;top:10px;pointer-events:none;filter:drop-shadow(0 0 12px rgba(246,22,55,.16))}
+#heartcode-speaker-new .hc3-hero-text{position:relative;z-index:2;padding-top:30px;max-width:69%}
+#heartcode-speaker-new .hc3-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,135,156,.84);border-radius:60px;background:linear-gradient(180deg,rgba(86,48,70,.7),rgba(33,20,39,.92));box-shadow:0 0 14px rgba(253,45,75,.2),inset 0 0 12px rgba(255,62,91,.12);padding:9px 17px;font-size:17px;font-weight:700}
+#heartcode-speaker-new .hc3-dot{display:block;width:9px;height:9px;border-radius:50%;background:#ff2d4d;box-shadow:0 0 11px rgba(255,29,73,.95)}
+#heartcode-speaker-new h2{font-size:clamp(40px,6.9vw,62px);font-weight:900;line-height:1.04;letter-spacing:-1.6px;margin:24px 0 14px;text-shadow:0 2px 15px #00182b}
+#heartcode-speaker-new .hc3-under{height:3px;width:100px;background:linear-gradient(90deg,#ff2444,transparent);margin:0 0 14px}
+#heartcode-speaker-new .hc3-hero-text p{font-size:clamp(16px,2.5vw,21px);line-height:1.35;margin:0;color:#f4f8ff;max-width:390px;text-shadow:0 1px 8px #00182b}
+#heartcode-speaker-new .hc3-wave{position:absolute;z-index:1;bottom:8px;left:1%;height:100px;width:78%;filter:drop-shadow(0 0 10px #ff294e);opacity:.85}
+#heartcode-speaker-new .hc3-panel{position:relative;z-index:2;border:1.5px solid rgba(119,211,255,.89);border-radius:32px;background:linear-gradient(140deg,rgba(28,65,94,.94),rgba(5,32,51,.98) 58%,rgba(18,69,96,.95));box-shadow:inset 0 0 26px rgba(63,169,207,.17),0 2px 28px rgba(3,5,22,.36),-2px 2px 16px rgba(236,25,61,.23);padding:4px 26px}
+#heartcode-speaker-new .hc3-panel:before{content:"";position:absolute;inset:-2px;border:2px solid transparent;border-bottom-color:rgba(255,52,85,.85);border-left-color:rgba(255,52,85,.78);border-radius:32px;clip-path:polygon(0 63%,0 100%,25% 100%,25% 98%,2% 98%,2% 65%);pointer-events:none;filter:drop-shadow(0 0 7px #ff234d)}
+#heartcode-speaker-new .hc3-row{display:grid;grid-template-columns:66px minmax(0,1fr);gap:22px;align-items:center;padding:19px 0;border-bottom:1px solid rgba(193,226,243,.22)}
+#heartcode-speaker-new .hc3-row:last-child{border-bottom:none}
+#heartcode-speaker-new .hc3-icon{color:#ff3154;filter:drop-shadow(0 0 6px rgba(255,28,70,.39));display:grid;place-items:center}
+#heartcode-speaker-new .hc3-icon svg{width:47px;height:47px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+#heartcode-speaker-new .hc3-row h3{font-size:clamp(17px,2.9vw,24px);font-weight:850;line-height:1.17;letter-spacing:-.15px;margin:0 0 7px;color:#fff}
+#heartcode-speaker-new .hc3-1000{color:#ff4565;font-size:1.25em}
+#heartcode-speaker-new .hc3-row p{font-size:clamp(14px,2.14vw,18px);line-height:1.43;color:#e4eef7;margin:0}
+#heartcode-speaker-new .hc3-row p+p{margin-top:8px}
+#heartcode-speaker-new .hc3-row strong{color:#fff}
+@media (max-width:600px){#heartcode-speaker-new .hc3-wrap{padding:16px 14px 28px}#heartcode-speaker-new .hc3-hero{height:315px}#heartcode-speaker-new .hc3-hero-text{padding-top:14px;max-width:69%}#heartcode-speaker-new .hc3-pill{font-size:14px;padding:7px 12px;gap:7px}#heartcode-speaker-new h2{font-size:clamp(31px,9vw,40px);margin:20px 0 13px;letter-spacing:-.9px}#heartcode-speaker-new .hc3-under{width:65px;margin-bottom:12px}#heartcode-speaker-new .hc3-hero-text p{font-size:clamp(12.5px,3.5vw,15px);line-height:1.35}#heartcode-speaker-new .hc3-heart{width:63%;right:-26px;top:41px}#heartcode-speaker-new .hc3-wave{bottom:9px;width:94%;left:-10px;height:64px}#heartcode-speaker-new .hc3-panel{border-radius:23px;padding:2px 13px}#heartcode-speaker-new .hc3-row{grid-template-columns:38px minmax(0,1fr);gap:11px;padding:15px 0}#heartcode-speaker-new .hc3-icon svg{width:31px;height:31px}#heartcode-speaker-new .hc3-row h3{font-size:clamp(16px,4.1vw,19px);margin-bottom:6px}#heartcode-speaker-new .hc3-row p{font-size:clamp(13px,3.5vw,15px);line-height:1.4}}
+@media (max-width:359px){#heartcode-speaker-new .hc3-wrap{padding:12px 10px 23px}#heartcode-speaker-new .hc3-hero{height:292px}#heartcode-speaker-new .hc3-heart{width:69%;right:-29px;top:42px}#heartcode-speaker-new .hc3-hero-text{padding-top:15px}#heartcode-speaker-new h2{font-size:30px}#heartcode-speaker-new .hc3-hero-text p{font-size:12px}#heartcode-speaker-new .hc3-row{grid-template-columns:30px minmax(0,1fr);gap:8px;padding:13px 0}#heartcode-speaker-new .hc3-icon svg{width:26px;height:26px}#heartcode-speaker-new .hc3-row h3{font-size:15px}#heartcode-speaker-new .hc3-row p{font-size:12.7px}}</style>
+<style id="heartcode-audience">
+/* All styles for the new section are scoped. The original first screen stays intact. */
+#heartcode-page-two{position:relative;width:100%;max-width:864px;margin:0 auto;overflow:hidden;isolation:isolate;font-family:Arial,Helvetica,sans-serif;color:#0c213f;background:
+ radial-gradient(ellipse 64% 20% at 6% 94%,rgba(255,102,137,.13),transparent 80%),
+ linear-gradient(180deg,#fafbff 0%,#f8faff 34%,#eef2f9 72%,#f5f7fd 100%);}
+#heartcode-page-two *{box-sizing:border-box}
+#heartcode-page-two .hc2-transition{display:none}
+#heartcode-page-two .hc2-transition:after{content:"";position:absolute;right:-25px;top:30px;width:65%;height:42px;opacity:.58;
+ background:radial-gradient(ellipse,rgba(113,218,252,.28),transparent 70%);filter:blur(12px)}
+#heartcode-page-two .hc2-inner{max-width:785px;margin:auto;padding:37px 25px 48px;position:relative}
+#heartcode-page-two .hc2-brand{display:flex;gap:9px;align-items:center;font-weight:900;letter-spacing:.15px;color:#0b2040;text-shadow:none;font-size:21px;line-height:1}
+#heartcode-page-two .hc2-brand svg{height:29px;width:29px;flex:0 0 auto}
+#heartcode-page-two .hc2-head{position:relative;margin:20px 0 21px;z-index:1}
+#heartcode-page-two .hc2-title{font-size:clamp(34px,5.9vw,53px);line-height:1.04;letter-spacing:-1.5px;font-weight:900;max-width:740px;margin:0 0 16px;color:#0b2040}
+#heartcode-page-two .hc2-title b{display:inline-block;background:linear-gradient(95deg,#ff3156,#ee003b);color:white;padding:1px 13px 7px;border-radius:14px;font-weight:900;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#heartcode-page-two .hc2-lead{font-size:clamp(17px,2.4vw,22px);font-weight:600;line-height:1.35;color:#3a4a66;margin:0;max-width:690px}
+#heartcode-page-two .hc2-ecg{position:absolute;width:190px;right:-70px;top:30px;pointer-events:none;opacity:.52;z-index:-1}
+#heartcode-page-two .hc2-cards{display:flex;flex-direction:column;gap:12px}
+#heartcode-page-two .hc2-card{border:1.7px solid white;border-radius:28px;position:relative;overflow:hidden;isolation:isolate;min-height:212px;display:flex;align-items:center;
+  background:linear-gradient(100deg,#fff 0%,#f8faff 78%,#e2e9f0 100%);box-shadow:0 9px 25px rgba(42,54,83,.11),0 2px 4px rgba(33,52,82,.03)}
+#heartcode-page-two .hc2-card-picture{position:absolute;right:0;top:0;width:55%;height:100%;object-fit:cover;object-position:50% center;z-index:0;filter:saturate(1.03)}
+#heartcode-page-two .hc2-card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.995) 43%,rgba(255,255,255,.96) 57%,rgba(255,255,255,.42) 72%,rgba(255,255,255,.02) 88%)}
+#heartcode-page-two .hc2-card-content{display:grid;grid-template-columns:78px minmax(0,1fr);gap:23px;position:relative;z-index:2;padding:26px 20px 27px 25px;width:70%;align-items:start}
+#heartcode-page-two .hc2-med-icon{width:75px;height:75px;display:grid;place-items:center;background:linear-gradient(135deg,#ffe8ee,#fff3f5);color:#f31744;border-radius:22px}
+#heartcode-page-two .hc2-med-icon svg{width:43px;height:43px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.1}
+#heartcode-page-two .hc2-copy{position:relative;min-width:0}
+#heartcode-page-two .hc2-copy:before{content:"";position:absolute;left:-12px;top:5px;width:2px;height:84px;background:#f51743}
+#heartcode-page-two .hc2-copy h3{color:#081e3e;font-size:clamp(23px,3.6vw,31px);letter-spacing:-.6px;font-weight:900;line-height:1.06;margin:0 0 12px}
+#heartcode-page-two .hc2-points{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+#heartcode-page-two .hc2-points li{display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start;font-weight:600;font-size:clamp(13px,1.7vw,16px);line-height:1.31;color:#11192a}
+#heartcode-page-two .hc2-tick{width:19px;height:19px;display:grid;place-items:center;background:#f41440;border-radius:50%;margin-top:1px;color:white}
+#heartcode-page-two .hc2-tick svg{width:13px;height:13px;fill:none;stroke:white;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+#heartcode-page-two .hc2-action{width:min(100%,550px);min-height:61px;display:flex;justify-content:center;align-items:center;gap:17px;margin:31px auto 0;border:0;
+  border-radius:60px;background:linear-gradient(105deg,#ff3655 0%,#f91745 55%,#c5002c 100%);color:white;font-size:18px;font-weight:800;letter-spacing:-.25px;
+  box-shadow:0 12px 25px rgba(224,1,51,.23),inset 0 2px 3px rgba(255,255,255,.24)}
+#heartcode-page-two .hc2-action:focus-visible{outline:3px solid #073a6b;outline-offset:3px}
+#heartcode-page-two .hc2-action-arrow{display:grid;place-items:center;background:#fff;color:#df0636;width:35px;height:35px;border-radius:50%}
+#heartcode-page-two .hc2-action-arrow svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.9}
+#heartcode-page-two .hc2-footer{text-align:center;font-size:10px;color:#69768e;letter-spacing:2px;font-weight:800;margin-top:24px}
+@media(max-width:600px){
+ #heartcode-page-two{background:radial-gradient(ellipse 66% 24% at 5% 98%,rgba(254,91,121,.13),transparent 77%),linear-gradient(180deg,#fafbff 0%,#f9faff 30%,#f2f5fa 75%,#f7f8fd 100%)}
+ #heartcode-page-two .hc2-transition{display:none}
+ #heartcode-page-two .hc2-inner{padding:27px 15px 38px}
+ #heartcode-page-two .hc2-brand{font-size:19px;gap:7px}
+ #heartcode-page-two .hc2-brand svg{width:27px;height:27px}
+ #heartcode-page-two .hc2-head{margin:20px 0 21px}
+ #heartcode-page-two .hc2-title{font-size:clamp(31px,8.3vw,40px);letter-spacing:-1.25px;line-height:1.05;margin-bottom:15px}
+ #heartcode-page-two .hc2-title b{border-radius:9px;padding:2px 7px 4px}
+ #heartcode-page-two .hc2-lead{font-size:clamp(14px,3.85vw,16px);line-height:1.34;font-weight:600}
+ #heartcode-page-two .hc2-ecg{right:-65px;top:43px;width:132px;opacity:.45}
+ #heartcode-page-two .hc2-cards{gap:12px}
+ #heartcode-page-two .hc2-card{min-height:181px;border-radius:23px}
+ #heartcode-page-two .hc2-card-picture{width:55%;object-position:49% 50%}
+ #heartcode-page-two .hc2-card:after{background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.995) 42%,rgba(255,255,255,.93) 58%,rgba(255,255,255,.42) 71%,rgba(255,255,255,.02) 88%)}
+ #heartcode-page-two .hc2-card-content{grid-template-columns:39px minmax(0,1fr);gap:17px;padding:18px 5px 19px 13px;width:68%}
+ #heartcode-page-two .hc2-med-icon{width:40px;height:40px;border-radius:12px}
+ #heartcode-page-two .hc2-med-icon svg{width:25px;height:25px}
+ #heartcode-page-two .hc2-copy:before{left:-9px;height:74px;top:3px}
+ #heartcode-page-two .hc2-copy h3{font-size:clamp(17px,4.65vw,20px);margin-bottom:9px;letter-spacing:-.45px}
+ #heartcode-page-two .hc2-points{gap:7px}
+ #heartcode-page-two .hc2-points li{font-size:clamp(11.6px,3.15vw,13px);line-height:1.28;grid-template-columns:15px 1fr;gap:5px;font-weight:600}
+ #heartcode-page-two .hc2-tick{width:14px;height:14px}
+ #heartcode-page-two .hc2-tick svg{width:10px;height:10px}
+ #heartcode-page-two .hc2-action{font-size:15px;min-height:56px;margin-top:25px}
+ #heartcode-page-two .hc2-action-arrow{width:32px;height:32px}
+}
+@media(max-width:359px){
+ #heartcode-page-two .hc2-inner{padding-left:11px;padding-right:11px}
+ #heartcode-page-two .hc2-card{min-height:194px}
+ #heartcode-page-two .hc2-card-content{grid-template-columns:32px minmax(0,1fr);gap:13px;padding-left:10px;width:70%}
+ #heartcode-page-two .hc2-med-icon{width:32px;height:32px}
+ #heartcode-page-two .hc2-med-icon svg{width:21px;height:21px}
+ #heartcode-page-two .hc2-copy h3{font-size:16.5px}
+ #heartcode-page-two .hc2-points li{font-size:11.2px}
+}
+
+/* Seamless transition belongs BETWEEN the untouched hero and this white poster section. */
+#hc-first-second-fade {height:136px;max-width:864px;margin:0 auto;position:relative;overflow:hidden;pointer-events:none;background:
+ radial-gradient(ellipse at 74% 15%,rgba(33,147,215,.22),transparent 64%),
+ linear-gradient(180deg,#0a2c47 0%,#285373 22%,#6b91ab 45%,#bacbd8 72%,#fafbff 100%);}
+#hc-first-second-fade:before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(180deg,rgba(1,16,31,.13),transparent 85%)}
+#heartcode-page-two .hc2-inner:before{content:"";position:absolute;top:0;right:0;width:29%;height:242px;background:url('assets/02_audience_decoration.webp') top right / cover no-repeat;opacity:.68;pointer-events:none;mask-image:linear-gradient(90deg,transparent 0%,black 45%),linear-gradient(180deg,black 0%,transparent 100%);mask-composite:intersect;}
+@media (max-width:600px){#hc-first-second-fade{height:110px}#heartcode-page-two .hc2-inner:before{width:32%;height:165px;opacity:.48}}
+</style>
+<style id="heartcode-fifth">
+/* Final registration is an ordinary full-width section, NEVER a phone mockup. */
+#hc-final-register{position:relative;z-index:1;width:100%;max-width:864px;overflow:hidden;margin:0 auto;color:#fff;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 82% 32%,rgba(33,126,166,.25),transparent 47%),linear-gradient(180deg,#f4f7fc 0%,#d2dee9 2%,#56758f 5%,#0f344d 10%,#061d30 21%,#082840 100%)}
+#hc-final-register *{box-sizing:border-box}
+#hc-final-register .hc-final-inner{max-width:540px;margin:0 auto;padding:80px 13px 31px}
+#hc-final-register .hc-final-intro{margin:0 7px 17px;display:flex;justify-content:center;align-items:center;gap:11px;color:#fff;font-size:13px;font-weight:800;letter-spacing:1.2px}
+#hc-final-register .hc-final-intro:before,#hc-final-register .hc-final-intro:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(255,89,122,.8))}
+#hc-final-register .hc-final-intro:after{background:linear-gradient(90deg,rgba(255,89,122,.8),transparent)}
+#hc-final-register .hc-reg-hero{position:relative;width:100%;aspect-ratio:733/630;overflow:hidden;background:linear-gradient(145deg,#061b30,#0a344b)}
+#hc-final-register .hc-reference-art{display:block;width:100%;height:100%;object-fit:fill;user-select:none}
+#hc-final-register .hc-timer{position:absolute;left:5%;top:51.2%;display:flex;align-items:center;gap:11px;width:47%;min-height:16%;padding:8px 13px;border:1px solid rgba(255,98,128,.84);border-radius:14px;background:linear-gradient(110deg,rgba(5,22,40,.99),rgba(9,35,54,.98));box-shadow:inset 0 1px 10px rgba(255,56,96,.16),0 0 18px rgba(250,40,78,.22)}
+#hc-final-register .hc-timer-icon{display:grid;place-items:center;width:31px;height:31px;flex:none;border:1px solid rgba(252,60,97,.65);border-radius:50%;color:#ff375e}
+#hc-final-register .hc-timer-icon svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#hc-final-register .hc-timer-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
+#hc-final-register .hc-timer-label{font-size:11px;line-height:1.2;font-weight:700;color:#dfedf6}
+#hc-final-register .hc-timer-value{font-size:clamp(24px,6vw,33px);line-height:1;font-variant-numeric:tabular-nums;font-weight:900;letter-spacing:.7px;color:white;text-shadow:0 0 11px rgba(255,56,85,.57)}
+#hc-final-register .hc-timer:after{content:"";position:absolute;left:8px;right:8px;bottom:0;height:3px;border-radius:4px;background:rgba(170,194,216,.22)}
+#hc-final-register .hc-timer-progress{position:absolute;left:8px;bottom:0;height:3px;width:calc((100% - 16px) * var(--remaining,1));background:#ff3157;border-radius:4px;box-shadow:0 0 7px #ff3157;transition:width .2s linear}
+#hc-final-register .hc-reg-white{position:relative;z-index:4;margin:0 15px 13px;padding:21px 21px 18px;border-radius:25px;background:linear-gradient(145deg,#f9f9ff,#f1f2fa);color:#102746;border:1px solid rgba(255,255,255,.95);box-shadow:0 0 12px rgba(234,235,255,.4),0 7px 32px #050c1d33}
+#hc-final-register .hc-reg-field{position:relative;margin-bottom:12px}
+#hc-final-register .hc-reg-field svg{position:absolute;top:50%;left:14px;transform:translateY(-50%);width:24px;height:24px;stroke:#ff1e47;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+#hc-final-register .hc-reg-field input{display:block;width:100%;height:51px;padding:0 14px 0 49px;border:1.6px solid #cbd0e1;border-radius:19px;outline:0;background:#f6f7fc;color:#0d2140;font:600 16px Arial,Helvetica,sans-serif;box-shadow:inset 0 1px 3px #1f35530a;appearance:none}
+#hc-final-register .hc-reg-field input::placeholder{color:#425575;opacity:1;font-weight:600}
+#hc-final-register .hc-reg-field input:focus{border-color:#f72850;background:#fff;box-shadow:0 0 0 3px #f7285020}
+#hc-final-register .hc-reg-submit{display:flex;align-items:center;justify-content:center;position:relative;width:100%;min-height:58px;margin-top:16px;padding:9px 47px 9px 13px;border:1px solid #ffb0c2;border-radius:35px;background:linear-gradient(135deg,#ff1d45 0%,#fa003b 45%,#bc0028 100%);color:#fff;font:800 clamp(13px,3.8vw,17px) Arial,Helvetica,sans-serif;white-space:nowrap;box-shadow:inset 0 1px 4px #fff5,0 11px 20px #eb143e46;cursor:pointer}
+#hc-final-register .hc-reg-submit .hc-reg-arrow{position:absolute;right:7px;top:7px;width:42px;height:42px;background:#f5f5fb;border-radius:50%;display:grid;place-items:center;color:#bf0b33}
+#hc-final-register .hc-reg-submit .hc-reg-arrow svg{width:25px;height:25px;stroke:currentColor;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#hc-final-register .hc-reg-privacy{display:flex;gap:9px;align-items:start;margin:16px 5px 0;color:#4a5b7b;font-size:11px;line-height:1.36;font-weight:500;cursor:pointer}
+#hc-final-register .hc-reg-privacy input{accent-color:#ec2449;margin:1px 0 0;width:15px;height:15px;flex:none}
+#hc-final-register .hc-reg-note{display:flex;align-items:start;gap:8px;font-size:11.5px;line-height:1.45;margin:11px 1px 0;color:#54617d}
+#hc-final-register .hc-reg-note svg{flex:none;width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none}
+#hc-final-register .hc-reg-msg{display:none;margin:11px 1px 0;padding:9px 10px;border-radius:9px;background:#fff1f5;color:#9d1134;font-size:12px;line-height:1.4}
+#hc-final-register .hc-reg-msg:not(:empty){display:block}
+#hc-final-register .hc-final-bottom{padding:18px 8px 2px;text-align:center;font-size:11px;letter-spacing:2px;color:#97b5ca;font-weight:700}
+@media(max-width:359px){#hc-final-register .hc-final-inner{padding-left:6px;padding-right:6px}#hc-final-register .hc-reg-white{margin-left:11px;margin-right:11px;padding:16px 14px}#hc-final-register .hc-reg-field input{height:47px;font-size:14px}#hc-final-register .hc-reg-submit{min-height:52px;font-size:13px}#hc-final-register .hc-reg-submit .hc-reg-arrow{width:38px;height:38px;right:6px;top:6px}#hc-final-register .hc-timer{gap:6px;padding:6px 8px}#hc-final-register .hc-timer-icon{width:25px;height:25px}#hc-final-register .hc-timer-icon svg{width:17px;height:17px}#hc-final-register .hc-timer-label{font-size:9px}}
+@media(prefers-reduced-motion:reduce){#hc-final-register .hc-timer-progress{transition:none}}
+</style>
+<style id="heartcode-popup">
+/* New registration popup. Keeps the surrounding four sections unchanged. */
+#sampleDialog{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 10px env(safe-area-inset-bottom,0px);overflow:auto;overscroll-behavior:contain;background:rgba(0,10,27,.85);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#sampleDialog:target,#sampleDialog.is-open{display:flex}
+#sampleDialog *{box-sizing:border-box}
+body:has(#sampleDialog:target),body.hc-reg-open{overflow:hidden}
+a.cta{text-decoration:none;display:flex;align-items:center;line-height:1}
+#sampleDialog .hc-dialog-panel{position:relative;width:min(100%,434px);max-height:calc(100svh - 16px);max-height:calc(100dvh - 16px);overflow:auto;border-radius:20px;color:#fff;background:linear-gradient(155deg,#061f33,#0b324a 58%,#09243b);box-shadow:0 20px 80px rgba(0,0,0,.5),0 0 24px rgba(48,163,215,.15);scrollbar-width:none;-webkit-overflow-scrolling:touch;isolation:isolate;font-family:Arial,Helvetica,sans-serif}
+#sampleDialog .hc-dialog-panel::-webkit-scrollbar{display:none}
+#sampleDialog .hc-reg-hero{position:relative;width:100%;aspect-ratio:733/630;overflow:hidden;background:linear-gradient(130deg,#061b30,#0a344b)}
+#sampleDialog .hc-reference-art{width:100%;height:100%;display:block;object-fit:fill;user-select:none;pointer-events:none}
+#sampleDialog .hc-reg-x{z-index:20;position:absolute;top:10px;right:11px;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;color:#fff;font-size:22px;line-height:1;background:rgba(5,22,37,.78);text-decoration:none;box-shadow:0 2px 12px #0006}
+#sampleDialog .hc-timer{position:absolute;left:5%;top:51.2%;z-index:2;display:flex;align-items:center;gap:11px;width:47%;min-height:16%;padding:8px 13px;border:1px solid rgba(255,98,128,.84);border-radius:14px;background:linear-gradient(110deg,rgba(5,22,40,.99),rgba(9,35,54,.98));box-shadow:inset 0 1px 10px rgba(255,56,96,.16),0 0 18px rgba(250,40,78,.22)}
+#sampleDialog .hc-timer-icon{display:grid;place-items:center;width:31px;height:31px;flex:none;border:1px solid rgba(252,60,97,.65);border-radius:50%;color:#ff375e}
+#sampleDialog .hc-timer-icon svg{width:21px;height:21px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#sampleDialog .hc-timer-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
+#sampleDialog .hc-timer-label{font-size:11px;line-height:1.2;font-weight:700;color:#dfedf6}
+#sampleDialog .hc-timer-value{font-size:clamp(24px,6vw,33px);line-height:1;font-variant-numeric:tabular-nums;font-weight:900;letter-spacing:.7px;color:white;text-shadow:0 0 11px rgba(255,56,85,.57)}
+#sampleDialog .hc-timer:after{content:"";position:absolute;left:8px;right:8px;bottom:0;height:3px;border-radius:4px;background:rgba(170,194,216,.22)}
+#sampleDialog .hc-timer-progress{position:absolute;left:8px;bottom:0;height:3px;width:calc((100% - 16px) * var(--remaining,1));background:#ff3157;border-radius:4px;box-shadow:0 0 7px #ff3157;transition:width .2s linear}
+#sampleDialog .hc-reg-white{position:relative;z-index:4;margin:0 15px 13px;padding:21px 21px 18px;border-radius:25px;background:linear-gradient(145deg,#f9f9ff,#f1f2fa);color:#102746;border:1px solid rgba(255,255,255,.95);box-shadow:0 0 12px rgba(234,235,255,.4),0 7px 32px #050c1d33}
+#sampleDialog .hc-reg-field{position:relative;margin-bottom:12px}
+#sampleDialog .hc-reg-field svg{position:absolute;top:50%;left:14px;transform:translateY(-50%);width:24px;height:24px;stroke:#ff1e47;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+#sampleDialog .hc-reg-field input{display:block;width:100%;height:51px;padding:0 14px 0 49px;border:1.6px solid #cbd0e1;border-radius:19px;outline:0;background:#f6f7fc;color:#0d2140;font:600 16px Arial,Helvetica,sans-serif;box-shadow:inset 0 1px 3px #1f35530a;appearance:none}
+#sampleDialog .hc-reg-field input::placeholder{color:#425575;opacity:1;font-weight:600}
+#sampleDialog .hc-reg-field input:focus{border-color:#f72850;background:#fff;box-shadow:0 0 0 3px #f7285020}
+#sampleDialog .hc-reg-submit{display:flex;align-items:center;justify-content:center;position:relative;width:100%;min-height:58px;margin-top:16px;padding:9px 47px 9px 13px;border:1px solid #ffb0c2;border-radius:35px;background:linear-gradient(135deg,#ff1d45 0%,#fa003b 45%,#bc0028 100%);color:#fff;font:800 clamp(13px,3.8vw,17px) Arial,Helvetica,sans-serif;white-space:nowrap;box-shadow:inset 0 1px 4px #fff5,0 11px 20px #eb143e46;cursor:pointer}
+#sampleDialog .hc-reg-submit:disabled{opacity:.6;cursor:wait}
+#sampleDialog .hc-reg-submit .hc-reg-arrow{position:absolute;right:7px;top:7px;width:42px;height:42px;background:#f5f5fb;border-radius:50%;display:grid;place-items:center;color:#bf0b33}
+#sampleDialog .hc-reg-submit .hc-reg-arrow svg{width:25px;height:25px;stroke:currentColor;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#sampleDialog .hc-reg-privacy{display:flex;gap:9px;align-items:start;margin:16px 5px 0;color:#4a5b7b;font-size:11px;line-height:1.36;font-weight:500;cursor:pointer}
+#sampleDialog .hc-reg-privacy input{accent-color:#ec2449;margin:1px 0 0;width:15px;height:15px;flex:none;cursor:pointer}
+#sampleDialog .hc-reg-note{display:flex;align-items:start;gap:8px;font-size:11.5px;line-height:1.45;margin:11px 1px 0;color:#54617d}
+#sampleDialog .hc-reg-note svg{flex:none;width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none}
+#sampleDialog .hc-reg-msg{display:none;margin:11px 1px 0;padding:9px 10px;border-radius:9px;background:#fff1f5;color:#9d1134;font-size:12px;line-height:1.4}
+#sampleDialog .hc-reg-msg:not(:empty){display:block}
+@media(max-width:359px){#sampleDialog{padding-left:6px;padding-right:6px}#sampleDialog .hc-reg-white{margin-left:11px;margin-right:11px;padding:16px 14px 16px}#sampleDialog .hc-reg-field input{height:47px;font-size:14px}#sampleDialog .hc-reg-submit{min-height:52px;font-size:13px}#sampleDialog .hc-reg-submit .hc-reg-arrow{width:38px;height:38px;right:6px;top:6px}#sampleDialog .hc-timer{gap:6px;padding:6px 8px}#sampleDialog .hc-timer-icon{width:25px;height:25px}#sampleDialog .hc-timer-icon svg{width:17px;height:17px}#sampleDialog .hc-timer-label{font-size:9px}}
+@media(max-height:710px){#sampleDialog{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){#sampleDialog .hc-timer-progress{transition:none}}
+</style>
+<style id="heartcode-finishing">
+/* HEARTCODE 2026 production finishing pass — layout is one uninterrupted landing page. */
+:root{--hc-navy:#031729;--hc-navy2:#061f34;--hc-red:#ff294c;--hc-paper:#f8f9fd}
+html{scroll-behavior:smooth;background:var(--hc-navy)}
+body{overflow-x:hidden;background:var(--hc-navy)!important;font-family:Arial,Helvetica,sans-serif}
+#outer,#hc-program-photo,#heartcode-speaker-new,#heartcode-page-two,#hc-final-register{width:100%;max-width:864px;margin-left:auto;margin-right:auto}
+#mobileArt{overflow:hidden;isolation:isolate;background-color:var(--hc-navy)}
+#mobileArt:after{content:"";position:absolute;z-index:4;pointer-events:none;left:0;right:0;bottom:-1px;height:clamp(95px,22cqw,170px);background:linear-gradient(to bottom,rgba(3,23,41,0) 0%,rgba(3,23,41,.16) 28%,rgba(3,23,41,.72) 74%,#031729 100%)}
+#mobileArt .fact:nth-child(2) .fact-line{background:#e12649;opacity:.9}
+#mobileArt .fact:nth-child(3) .fact-line{background:#e12649;opacity:.9}
+#mobileArt .header{width:auto;right:5%;}
+/* No artificial blank spacers or repeated site-header elements between content sections. */
+#hc-program-photo{margin-top:-162px;padding-top:0;background:radial-gradient(ellipse at 80% 10%,rgba(28,132,201,.22),transparent 38%),radial-gradient(ellipse at -2% 22%,rgba(255,41,76,.18),transparent 31%),linear-gradient(180deg,#04192a 0%,#031729 46%,#031729 100%);position:relative;z-index:8}
+#hc-program-photo:before{content:"";position:absolute;z-index:0;left:0;right:0;top:-94px;height:96px;background:linear-gradient(to bottom,rgba(3,23,41,0),rgba(3,23,41,.34) 30%,rgba(3,23,41,.78) 72%,#031729 100%);pointer-events:none}
+#hc-program-photo .hc4-program-head{position:relative;z-index:2;padding-top:8px}
+#hc-program-photo .hc4-program-art{margin-bottom:0;isolation:isolate;background:transparent;display:block;line-height:0}
+#hc-program-photo .hc4-program-art:after{content:"";position:absolute;left:0;right:0;bottom:-1px;z-index:4;pointer-events:none;height:clamp(55px,10vw,98px);background:linear-gradient(180deg,transparent 0%,rgba(3,23,41,.33) 40%,#031729 100%)}
+#heartcode-speaker-new{background:radial-gradient(ellipse 58% 22% at 82% 19%,rgba(27,133,188,.22),transparent 85%),radial-gradient(ellipse at 5% 65%,rgba(219,22,62,.09),transparent 42%),linear-gradient(180deg,#031729,#06233a 30%,#031729 93%)}
+#heartcode-speaker-new .hc3-wrap{padding-bottom:64px}
+#heartcode-speaker-new::after{content:"";position:absolute;z-index:3;left:0;right:0;bottom:-1px;height:60px;pointer-events:none;background:linear-gradient(180deg,rgba(3,23,41,0) 0%,rgba(43,82,109,.55) 49%,#dce7f0 100%)}
+#heartcode-speaker-new .hc3-panel{margin-bottom:0}
+/* Fade from the dark speaker block to the white audience block in background, not a standalone spacer. */
+#heartcode-page-two{background:linear-gradient(180deg,#dce7f0 0px,#f4f7fc 45px,#f8f9fd 110px,#f8f9fd calc(100% - 58px),#6e90a6 calc(100% - 25px),#071f34 100%)!important;color:#102443;overflow:hidden;position:relative}
+#heartcode-page-two .hc2-inner{padding-top:25px!important;padding-bottom:58px!important}
+#heartcode-page-two .hc2-head{margin-top:0}
+#heartcode-page-two .hc2-title{color:#0b2040;text-shadow:none}
+#heartcode-page-two .hc2-lead{color:#3a4a66;text-shadow:none}
+#heartcode-page-two .hc2-card{box-shadow:0 5px 19px rgba(28,52,83,.10)}
+#heartcode-page-two .hc2-ecg{max-width:42vw}
+/* Registration starts immediately after audience fade — no repeated title bar, image is fully visible. */
+#hc-final-register{background:radial-gradient(ellipse at 85% 16%,rgba(20,107,160,.28),transparent 49%),linear-gradient(180deg,#071f34 0%,#062238 15%,#051c30 70%,#08263b 100%)!important}
+#hc-final-register .hc-final-inner{padding:0 12px 18px;max-width:540px}
+#hc-final-register .hc-reg-hero{margin-top:0;line-height:0;aspect-ratio:733/630;border:0}
+#hc-final-register .hc-reg-white{margin-top:-2px;margin-bottom:8px}
+#hc-final-register .hc-final-bottom{padding:21px 8px 17px;font-size:13px;line-height:1.5;letter-spacing:.35px;color:#b8cad9;text-transform:none}
+#hc-final-register .hc-timer{z-index:6}
+#hc-final-register .hc-timer-copy{line-height:1.2}
+#hc-final-register .hc-reference-art{display:block}
+#hc-final-register .hc-reg-white,#sampleDialog .hc-reg-white{scroll-margin-top:12px}
+#hc-final-register .hc-reg-submit:disabled,#sampleDialog .hc-reg-submit:disabled{opacity:.55;cursor:wait}
+/* The same one-minute visual timer starts when registration is opened, not when page is loaded. */
+.hc-timer-value{font-variant-numeric:tabular-nums}
+/* Pop-up: fixed above website, interaction enabled even in a no-JS hash navigation. */
+#sampleDialog{visibility:hidden;opacity:0;pointer-events:none;transition:opacity .16s ease;display:flex!important}
+#sampleDialog.is-open,#sampleDialog:target{visibility:visible;opacity:1;pointer-events:auto}
+body.hc-reg-open{overflow:hidden}
+#sampleDialog .hc-dialog-panel{max-height:min(95dvh,890px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#sampleDialog .hc-reg-hero{line-height:0}
+#sampleDialog .hc-timer{z-index:5}
+#sampleDialog .hc-reg-white{background:linear-gradient(145deg,#fafbff,#f0f2fa);}
+#sampleDialog .hc-dialog-panel,#sampleDialog .hc-reg-hero,#sampleDialog .hc-reference-art{border:none}
+#sampleDialog #closeDialog{position:absolute;top:9px;right:9px;z-index:30}
+#sampleDialog .hc-timer-label{line-height:1.15}
+#sampleDialog input,#hc-final-register input{font-size:16px}
+@media(max-width:600px){
+ #mobileArt .facts{top:415px}
+ #mobileArt .cta{top:591px}
+ #hc-program-photo{margin-top:-182px}
+ #hc-program-photo .hc4-program-head{padding:6px 20px 10px}
+ #hc-program-photo .hc4-program-art:after{height:72px}
+ #heartcode-speaker-new .hc3-wrap{padding-bottom:60px}
+ #heartcode-page-two .hc2-inner{padding:18px 14px 57px!important}
+ #hc-final-register .hc-final-inner{padding-left:0;padding-right:0}
+ #hc-final-register .hc-reg-white{margin:0 12px 6px}
+ #sampleDialog{padding:env(safe-area-inset-top,0px) 10px env(safe-area-inset-bottom,0px)}
+}
+@media(max-width:359px){
+ #mobileArt .facts{top:375px}
+ #mobileArt .cta{top:547px}
+ #hc-program-photo{margin-top:-168px}
+ #hc-program-photo .hc4-program-head{padding:4px 16px 7px}
+ #heartcode-page-two .hc2-inner{padding-left:11px;padding-right:11px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#sampleDialog{transition:none}}
+</style>
+<style id="hc-qa-polish">
+/* HEARTCODE — final visual + accessibility corrections. The five confirmed sections stay unchanged. */
+.hc-visually-hidden {position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+:where(a,button,input):focus-visible{outline:3px solid #79dfff;outline-offset:3px}
+#heartcode-speaker-new .hc3-wrap{padding-bottom:32px!important}
+#heartcode-speaker-new::after {height:36px!important;background:linear-gradient(180deg,rgba(4,24,40,0) 0%,rgba(48,92,124,.35) 32%,#dce7f0 100%)!important}
+#heartcode-page-two{background:linear-gradient(180deg,#dce7f0 0px,#f5f8fd 42px,#f8f9fd 95px,#f8f9fd calc(100% - 44px),#a7bdcf calc(100% - 23px),#071f34 100%)!important}
+#heartcode-page-two .hc2-inner{padding-bottom:30px!important}
+#hc-final-register{background:radial-gradient(ellipse at 86% 18%,rgba(22,111,163,.21),transparent 50%),linear-gradient(180deg,#071f34,#061e32 75%,#08263b 100%)!important}
+#hc-final-register .hc-final-inner{padding-bottom:0!important}
+#hc-final-register .hc-final-bottom{margin-top:0!important;padding-bottom:25px!important}
+#hc-final-register .hc-reg-white{box-shadow:0 0 13px rgba(221,233,255,.42),0 12px 31px rgba(0,11,31,.28)}
+#sampleDialog .hc-dialog-panel{width:min(100%,440px);max-height:calc(100dvh - 20px)}
+#sampleDialog #closeDialog{display:grid;place-items:center;touch-action:manipulation}
+#sampleDialog .hc-dialog-panel:focus{outline:none}
+#sampleDialog .hc-reg-msg,#hc-final-register .hc-reg-msg{word-wrap:break-word}
+#sampleDialog .hc-reg-submit,#hc-final-register .hc-reg-submit{touch-action:manipulation}
+@media(max-width:600px){
+ #heartcode-speaker-new .hc3-wrap{padding-bottom:25px!important}
+ #heartcode-page-two .hc2-inner{padding-bottom:28px!important}
+ #hc-final-register .hc-final-bottom{padding:13px 14px 20px!important;font-size:12px!important}
+}
+@media(max-width:359px){
+ #sampleDialog .hc-reg-white,#hc-final-register .hc-reg-white{padding:15px 13px 15px!important}
+ #sampleDialog .hc-reg-privacy,#hc-final-register .hc-reg-privacy{font-size:10px;line-height:1.4}
+}
+</style>
+<style id="heartcode-tilda-host">
+/* T123 embedding: avoid default side padding or separators in the single Tilda code block. */
+#allrecords .t-rec .t123, #allrecords .t-rec .t123 .t-container_100 { width:100%;max-width:none; margin:0;padding:0; }
+#allrecords .t-rec .t123 .t-container_100 { position:static; }
+#allrecords .t-rec[data-record-type="131"] {margin:0;padding:0;}
+</style>
+
+<main id="outer"><section aria-label="HEARTCODE тегін онлайн сабақ" id="mobileArt">
+<div class="layer decor backdrop"></div><div class="layer decor navyveil"></div><div class="layer decor redflare"></div><div class="layer decor redflare two"></div>
+<img alt="" aria-hidden="true" class="layer decor heart" loading="eager" src="assets/03_hero_ecg_heart.webp"/>
+<img alt="Дәрігер-кардиолог, HEARTCODE сабағының спикері" class="layer decor speaker" loading="eager" src="assets/04_expert_cutout.webp"/>
+<header class="layer header"><div class="brand"><svg aria-hidden="true" class="mark" viewbox="0 0 76 65" xmlns="http://www.w3.org/2000/svg"><path d="M38 59 7 29C-4 15 7 2 20 8c8 4 13 10 18 17 6-14 22-24 34-13 12 12 2 23-7 31Z" fill="none" stroke="#ff2348" stroke-linecap="round" stroke-width="3.4"></path><path d="M3 33h18l7-13 9 27 7-20 5 10 5-4h18" fill="none" stroke="#fafcff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.8"></path></svg><span class="brand-name">HEARTCODE</span></div>
+</header>
+<div class="layer pill"><span class="dot"></span>Тегін онлайн-сабақ</div>
+<h1 class="layer title">Инфаркт кезіндегі<br/><span class="red">ЭКГ:</span> әрбір медицина<br/>қызметкері білуі тиіс<br/>белгілер</h1>
+<p class="layer desc">Инфарктінің негізгі ЭКГ<br/>белгілерін нақты клиникалық<br/>мысалдар арқылы<br/>талдаймыз.</p>
+<div aria-label="Сабақ туралы ақпарат" class="layer facts">
+
+<div class="fact"><div class="fact-icon"><svg viewbox="0 0 56 56"><circle cx="28" cy="28" r="21"></circle><path d="M28 15v15l9 7"></path></svg></div><div class="fact-line"></div><div class="fact-copy"><strong>Уақыты:</strong><span>20:00</span></div></div>
+<div class="fact"><div class="fact-icon"><svg viewbox="0 0 56 56"><path d="M11 5h34v9c0 10-10 11-12 16 2 5 12 8 12 17v4H11v-4c0-9 10-12 12-17-2-5-12-6-12-16Z"></path><path d="M17 10h22M17 47h22"></path></svg></div><div class="fact-line"></div><div class="fact-copy"><strong>Ұзақтығы:</strong><span>60 минут</span></div></div>
+<div class="fact"><div class="fact-icon"><svg aria-hidden="true" viewbox="0 0 56 56"><rect height="31" rx="3" width="42" x="7" y="8"></rect><path d="M21 49h14M28 39v10M12 34h32"></path></svg></div><div class="fact-line"></div><div class="fact-copy"><strong>Өту форматы:</strong><span>Онлайн</span></div></div></div>
+<a aria-haspopup="dialog" class="cta" data-dialog="" href="#sampleDialog">Тегін сабаққа тіркелу<span class="arrow"><svg viewbox="0 0 32 32"><path d="M5 16h22M18 7l9 9-9 9"></path></svg></span></a>
+
+</section></main>
+<section aria-label="Сабақ бағдарламасы — вебинарда не қарастырамыз?" id="hc-program-photo">
+<div class="hc4-program-head">
+<div class="hc4-program-pill">Сабақ бағдарламасы</div>
+<h2 class="hc4-program-heading"><span>Вебинарда</span> не қарастырамыз?</h2>
+<p class="hc4-program-intro">Инфаркт кезіндегі ЭКГ-дағы маңызды өзгерістерді дәрігер-кардиологпен бірге нақты мысалдар арқылы талдаймыз.</p>
+</div>
+<div class="hc4-program-art"><img alt="Инфарктінің негізгі ЭКГ белгілері, ST сегментінің өзгерістері, ЭКГ тіркемелерін талдау және клиникалық мысалдар" decoding="async" loading="eager" src="assets/05_program_cards.webp"/></div>
+<div class="hc-visually-hidden" lang="kk"><h3>Сабақ бағдарламасы</h3><ul><li>Инфарктінің негізгі ЭКГ белгілері</li><li>ST сегментінің өзгерістері</li><li>ЭКГ тіркемелерін талдау</li><li>Клиникалық мысалдар және жиі қателіктер</li></ul></div></section>
+<section aria-labelledby="hc3-title" id="heartcode-speaker-new">
+<div class="hc3-wrap">
+<div class="hc3-top">
+<div class="hc3-hero">
+<div aria-hidden="true" class="hc3-hero-glow"></div>
+<img alt="" aria-hidden="true" class="hc3-heart" decoding="async" src="assets/06_speaker_heart.png">
+<div class="hc3-hero-text">
+<span class="hc3-pill"><span class="hc3-dot"></span> Сабақ спикері</span>
+<h2 id="hc3-title">Ләззат<br/>Закирқызы</h2>
+<div aria-hidden="true" class="hc3-under"></div>
+<p>Дәрігер-кардиолог,<br/>функционалдық<br/>диагностика дәрігері</p>
+</div>
+<svg aria-hidden="true" class="hc3-wave" preserveaspectratio="none" viewbox="0 0 560 85"><path d="M0 46h154l14-7 15 13 22-44 25 70 20-34 12 4h115l17-10 20 15 18-35 20 57 18-28h90" fill="none" stroke="#ff2549" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"></path></svg>
+</img></div>
+<div class="hc3-panel">
+<div class="hc3-row">
+<div class="hc3-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M25 42C17 35 6 29 6 18 6 6 18 3 25 14 32 3 44 6 44 18c0 11-11 17-19 24Z"></path><path d="M9 23h9l5-8 6 18 5-11h11"></path></svg></div>
+<div><h3>Клиникалық тәжірибесі</h3><p>Қазіргі таңда Шымкент қаласындағы Жүрек орталығында дәрігер-кардиолог болып қызмет атқарады.</p></div>
+</div>
+<div class="hc3-row">
+<div class="hc3-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="18" cy="15" r="7"></circle><circle cx="34" cy="18" r="6"></circle><path d="M3 42v-6c0-10 9-13 15-13s15 3 15 13v6M30 27c9-1 15 4 15 13v2"></path></svg></div>
+<div><h3><span class="hc3-1000">1000+</span> медицина маманын оқытқан</h3><p>1000-нан астам медицина маманына ЭКГ-ны өз бетінше оқып, негізгі өзгерістерін талдауды үйренуге көмектескен.</p></div>
+</div>
+<div class="hc3-row">
+<div class="hc3-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="M7 9c8-3 15-2 17 2v29c-5-5-12-5-17-3zm34 0c-8-3-15-2-17 2v29c5-5 12-5 17-3zM12 17h7M29 17h7M12 23h7M29 23h7"></path></svg></div>
+<div><h3>Авторлық курстары</h3><p>«Өмірді бірге құтқарайық» және «HEARTCODE» курстарының авторы.</p></div>
+</div>
+<div class="hc3-row">
+<div class="hc3-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><circle cx="24" cy="24" r="19"></circle><path d="M5 24h38M24 5c-9 10-9 28 0 38M24 5c9 10 9 28 0 38M10 14h28M10 34h28"></path></svg></div>
+<div><h3>Кәсіби біліктілігін арттыру</h3><p>Астрахань және Орынбор қалаларында қосымша кәсіби білім алып, біліктілігін арттырған.</p></div>
+</div>
+<div class="hc3-row">
+<div class="hc3-icon"><svg aria-hidden="true" viewbox="0 0 48 48"><path d="m2 18 22-10 22 10-22 10zM10 23v13c8 6 20 6 28 0V23M46 18v19"></path></svg></div>
+<div><h3>Білімі</h3><p><strong>Бакалавриат және интернатура:</strong> Марат Оспанов атындағы Батыс Қазақстан медицина университеті, Ақтөбе қаласы.</p><p><strong>Резидентура:</strong> Алматы қаласындағы ғылыми-зерттеу институты, кардиология мамандығы бойынша.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="heartcode-two-title" id="heartcode-page-two">
+
+<div class="hc2-inner">
+
+<div class="hc2-head">
+<svg aria-hidden="true" class="hc2-ecg" viewbox="0 0 155 48"><path d="M0 24h35l8-5 8 11 9-28 11 44 9-27 7 5h27l7-6 8 12 6-20 10 32 5-18h10" fill="none" stroke="#f2254e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<h2 class="hc2-title" id="heartcode-two-title">Бұл сабақ<br/><b>кімдерге пайдалы?</b></h2>
+<p class="hc2-lead">ЭКГ-ны практикалық тұрғыда меңгеріп, күнделікті жұмысыңызда сенімді қолданғыңыз келсе, бұл дәріс сіз үшін!</p>
+</div>
+<div class="hc2-cards"><article class="hc2-card"><img alt="" class="hc2-card-picture" decoding="async" loading="lazy" src="assets/07_audience_doctor.webp"/><div class="hc2-card-content"><div aria-hidden="true" class="hc2-med-icon"><svg viewbox="0 0 34 34"><path d="M9 7V4M23 7V4M9 7C6 7 5 9 5 12v5a11 11 0 0 0 11 11h1M23 7c3 0 4 2 4 5v5a11 11 0 0 1-10 11"></path><circle cx="23" cy="24" r="5"></circle><path d="M17 28h1"></path></svg></div><div class="hc2-copy"><h3>Дәрігерлерге</h3><ul class="hc2-points"><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>ЭКГ-ны жүйелі талдауды үйреніп, дұрыс диагноз қоюға</span></li><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>Клиникалық шешім қабылдауда сенімділікті арттыруға</span></li></ul></div></div></article><article class="hc2-card"><img alt="" class="hc2-card-picture" decoding="async" loading="lazy" src="assets/08_audience_ambulance.webp"/><div class="hc2-card-content"><div aria-hidden="true" class="hc2-med-icon"><svg viewbox="0 0 34 34"><rect height="14" rx="2" width="18" x="3" y="11"></rect><path d="M21 15h6l4 5v5H21M7 8V4M4 7l-2-2M10 6l2-2M12 15v8M8 19h8"></path><circle cx="9" cy="26" r="3"></circle><circle cx="25" cy="26" r="3"></circle></svg></div><div class="hc2-copy"><h3>Жедел жәрдем қызметкерлеріне</h3><ul class="hc2-points"><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>Шұғыл жағдайларда (инфаркт, аритмия және т.б.) ЭКГ өзгерістерін тез тануға</span></li><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>Дұрыс әрі жедел әрекет етуге</span></li></ul></div></div></article><article class="hc2-card"><img alt="" class="hc2-card-picture" decoding="async" loading="lazy" src="assets/09_audience_nurse.webp"/><div class="hc2-card-content"><div aria-hidden="true" class="hc2-med-icon"><svg viewbox="0 0 34 34"><path d="M4 11 16 6l12 5-3 13H7zM12 15h8M16 11v8"></path></svg></div><div class="hc2-copy"><h3>Фельдшерлер мен мейіргерлерге</h3><ul class="hc2-points"><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>ЭКГ түсірудің негізгі қағидаларын дұрыс меңгеруге</span></li><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>Негізгі патологияларды ажырата білуге</span></li></ul></div></div></article><article class="hc2-card"><img alt="" class="hc2-card-picture" decoding="async" loading="lazy" src="assets/10_audience_student.webp"/><div class="hc2-card-content"><div aria-hidden="true" class="hc2-med-icon"><svg viewbox="0 0 34 34"><path d="M2 12 16 5l14 7-14 7zM9 16v8c4 4 10 4 14 0v-8M30 12v12"></path></svg></div><div class="hc2-copy"><h3>Интерндер мен студенттерге</h3><ul class="hc2-points"><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>ЭКГ-ның негіздерін нөлден жүйелі түрде түсінуге</span></li><li><span aria-hidden="true" class="hc2-tick"><svg viewbox="0 0 16 16"><path d="m3 8 3 3 7-7"></path></svg></span><span>Клиникалық ойлауды дамытуға және тәжірибеде қолдануға</span></li></ul></div></div></article></div>
+
+
+</div>
+</section>
+<section aria-label="Тегін ЭКГ сабағына тіркелу" id="hc-final-register">
+<div class="hc-final-inner">
+
+<div class="hc-reg-hero">
+<img alt="Инфаркт кезіндегі ЭКГ белгілерін бірге талдайық. 20:00, 60 минут, онлайн" class="hc-reference-art" decoding="sync" loading="eager" src="assets/11_registration_hero.webp"/>
+<div aria-label="Бір минуттық кері санақ" class="hc-timer">
+<div class="hc-timer-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 6v7l5 3"></path></svg></div>
+<div class="hc-timer-copy"><span class="hc-timer-label" id="hc-final-timer-label">Тіркелу таймері</span><span aria-live="off" class="hc-timer-value" id="hc-final-timer-value" role="timer">01:00</span></div>
+<span aria-hidden="true" class="hc-timer-progress"></span>
+</div>
+</div>
+<form class="hc-reg-white" data-heartcode-form="" id="hc-final-signup-form" novalidate="">
+<div class="hc-reg-field"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="7" r="4"></circle><path d="M4 22v-2c0-5 16-5 16 0v2"></path></svg><input aria-label="Аты-жөніңіз" autocomplete="name" maxlength="100" name="name" placeholder="Аты-жөніңіз" required="" type="text"/></div>
+<div class="hc-reg-field"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.2 7.3L4 20l.8-4.7A8 8 0 1 1 20 12Z"></path><path d="M9 8c0 4 3 6 6 7l2-2-3-1-1 1-2-2 1-1-1-3Z"></path></svg><input aria-label="WhatsApp нөміріңіз" autocomplete="tel" inputmode="tel" maxlength="22" name="whatsapp" placeholder="+7 (___) ___-__-__" required="" type="tel"/></div>
+<button class="hc-reg-submit" type="submit">Тегін сабаққа тіркелу <span aria-hidden="true" class="hc-reg-arrow"><svg viewbox="0 0 24 24"><path d="M4 12h16M13 5l7 7-7 7"></path></svg></span></button>
+<label class="hc-reg-privacy"><input name="consent" required="" type="checkbox"/><span>Деректерімді тіркелу мақсатында өңдеуге келісемін.</span></label>
+<p class="hc-reg-note"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="11" rx="2" width="14" x="5" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg><span>Сіздің деректеріңіз құпия сақталады және тек сабақ туралы ақпарат жіберу үшін қолданылады.</span></p>
+<p aria-live="polite" class="hc-reg-msg" role="status" aria-live="polite"></p>
+</form>
+<div class="hc-final-bottom">HEARTCODE — Өмірді бірге құтқарайық!</div>
+</div>
+</section>
+<div aria-label="Тегін сабаққа тіркелу" aria-modal="true" class="hc-real-register" id="sampleDialog" role="dialog">
+<div class="hc-dialog-panel" tabindex="-1">
+<div class="hc-reg-hero">
+<img alt="Ләззат Закирқызы және тегін ЭКГ онлайн-сабағы. 20:00, 60 минут, онлайн" class="hc-reference-art" loading="eager" src="assets/11_registration_hero.webp"/>
+<a aria-label="Жабу" class="hc-reg-x" href="#close" id="closeDialog">×</a>
+<div aria-label="Тіркелу таймері" class="hc-timer">
+<div class="hc-timer-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 6v7l5 3"></path></svg></div>
+<div class="hc-timer-copy"><span class="hc-timer-label" id="hc-timer-label">Тіркелу таймері</span><span class="hc-timer-value" id="hc-timer-value" role="timer">01:00</span></div>
+<span aria-hidden="true" class="hc-timer-progress" id="hc-timer-progress"></span>
+</div>
+</div>
+<form class="hc-reg-white" data-heartcode-form="" id="hc-signup-form" novalidate="">
+<div class="hc-reg-field"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="7" r="4"></circle><path d="M4 22v-2c0-5 16-5 16 0v2"></path></svg><input aria-label="Аты-жөніңіз" autocomplete="name" id="hc-fullname" maxlength="100" name="name" placeholder="Аты-жөніңіз" required="" type="text"/></div>
+<div class="hc-reg-field"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.2 7.3L4 20l.8-4.7A8 8 0 1 1 20 12Z"></path><path d="M9 8c0 4 3 6 6 7l2-2-3-1-1 1-2-2 1-1-1-3Z"></path></svg><input aria-label="WhatsApp нөміріңіз" autocomplete="tel" id="hc-whatsapp" inputmode="tel" maxlength="22" name="whatsapp" placeholder="+7 (___) ___-__-__" required="" type="tel"/></div>
+<button class="hc-reg-submit" type="submit">Тегін сабаққа тіркелу<span aria-hidden="true" class="hc-reg-arrow"><svg viewbox="0 0 24 24"><path d="M4 12h16M13 5l7 7-7 7"></path></svg></span></button>
+<label class="hc-reg-privacy"><input id="hc-consent" name="consent" required="" type="checkbox"/><span>Деректерімді тіркелу мақсатында өңдеуге келісемін.</span></label>
+<p class="hc-reg-note"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="11" rx="2" width="14" x="5" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg><span>Сіздің деректеріңіз құпия сақталады және тек сабақ туралы ақпарат жіберу үшін қолданылады.</span></p>
+<p aria-live="polite" class="hc-reg-msg" role="status" aria-live="polite" id="hc-reg-msg"></p>
+</form>
+</div>
+</div>
+<script id="heartcode-production-js">
+(()=>{
+'use strict';
+const CONFIG={
+  // Put the already configured Google Apps Script Web App URL ending /exec here.
+  sheetEndpoint:'',
+  // You can add your WhatsApp invitation link here later, or link it from Tilda.
+  whatsappRedirect:'',
+  endpointFormat:'form'
+};
+const modal=document.getElementById('sampleDialog');
+const panel=modal&&modal.querySelector('.hc-dialog-panel');
+const forms=[...document.querySelectorAll('form[data-heartcode-form]')];
+const countdowns=[...document.querySelectorAll('.hc-timer-value')];
+const timerLabels=[...document.querySelectorAll('.hc-timer-label')];
+const timerProgress=[...document.querySelectorAll('.hc-timer-progress')];
+const inlineForm=document.getElementById('hc-final-signup-form');
+let deadline=null,clock=null,formerFocus=null,submitting=false;
+function showCountdown(){
+ const sec=deadline===null?60:Math.max(0,Math.ceil((deadline-Date.now())/1000));
+ const stamp=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');
+ countdowns.forEach(n=>n.textContent=stamp);
+ timerLabels.forEach(n=>n.textContent=sec===0?'Тіркелу жалғасуда':'Кері санақ');
+ timerProgress.forEach(n=>n.style.width=`calc((100% - 16px) * ${sec/60})`);
+ if(sec===0&&clock!==null){clearInterval(clock);clock=null;}
+}
+function startCountdown(newAttempt=false){
+ if(deadline===null || (newAttempt && deadline<Date.now())) deadline=Date.now()+60000;
+ showCountdown();
+ if(clock===null&&Date.now()<deadline) clock=setInterval(showCountdown,250);
+}
+function message(form,text){
+ const node=form.querySelector('.hc-reg-msg');
+ if(node)node.textContent=text||'';
+}
+function openModal(event){
+ if(event)event.preventDefault();
+ if(!modal)return;
+ formerFocus=document.activeElement;
+ modal.classList.add('is-open');
+ document.body.classList.add('hc-reg-open');
+ if(panel)panel.scrollTop=0;
+ startCountdown(true);
+ const form=modal.querySelector('form');
+ if(form)message(form,'');
+ // Do not automatically open the mobile software keyboard.
+ if(panel)panel.focus({preventScroll:true});
+}
+function closeModal(event){
+ if(event)event.preventDefault();
+ if(!modal)return;
+ modal.classList.remove('is-open');
+ document.body.classList.remove('hc-reg-open');
+ if(location.hash==='#sampleDialog'){
+  try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+ }
+ if(formerFocus&&formerFocus.isConnected&&typeof formerFocus.focus==='function')formerFocus.focus({preventScroll:true});
+}
+for(const node of document.querySelectorAll('[data-dialog],a[href="#sampleDialog"]'))node.addEventListener('click',openModal);
+const closeBtn=modal&&modal.querySelector('#closeDialog');
+if(closeBtn)closeBtn.addEventListener('click',closeModal);
+if(modal)modal.addEventListener('pointerdown',event=>{if(event.target===modal)closeModal(event);});
+document.addEventListener('keydown',event=>{
+ if(!modal||!modal.classList.contains('is-open'))return;
+ if(event.key==='Escape'){closeModal(event);return;}
+ if(event.key!=='Tab')return;
+ const candidates=[...modal.querySelectorAll('a[href],button:not([disabled]),input:not([disabled])')].filter(el=>el.getClientRects().length);
+ if(!candidates.length)return;
+ const first=candidates[0],last=candidates[candidates.length-1];
+ if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+ else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+});
+window.addEventListener('hashchange',()=>{
+ if(location.hash==='#sampleDialog')openModal();
+ else if(modal&&modal.classList.contains('is-open'))closeModal();
+});
+if(location.hash==='#sampleDialog')openModal();
+// The final inline form starts the same 60-second countdown when a visitor begins entering details.
+if(inlineForm){
+ const activate=()=>startCountdown(true);
+ inlineForm.addEventListener('focusin',activate,{once:true});
+ inlineForm.addEventListener('pointerdown',activate,{once:true});
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)showCountdown();});
+// Keep both versions of the form consistent if a visitor starts in one and finishes in the other.
+for(const form of forms){
+ form.addEventListener('input',event=>{
+  const target=event.target;
+  if(target.name!=='name'&&target.name!=='whatsapp')return;
+  for(const other of forms){if(other===form)continue;const el=other.elements.namedItem(target.name);if(el)el.value=target.value;}
+ });
+ form.addEventListener('change',event=>{
+  if(event.target.name!=='consent')return;
+  for(const other of forms){if(other===form)continue;const el=other.elements.namedItem('consent');if(el)el.checked=event.target.checked;}
+ });
+ form.addEventListener('submit',async event=>{
+  event.preventDefault();startCountdown(true);
+  if(submitting)return;
+  const nameEl=form.elements.namedItem('name');
+  const phoneEl=form.elements.namedItem('whatsapp');
+  const consentEl=form.elements.namedItem('consent');
+  const name=nameEl.value.trim().replace(/\s+/g,' ');
+  const digits=phoneEl.value.replace(/\D/g,'');
+  if(name.length<2){message(form,'Аты-жөніңізді енгізіңіз.');nameEl.focus();return;}
+  if(!((digits.length===11&&/^[78]/.test(digits))||(digits.length===10&&/^[0-9]+$/.test(digits)))){
+   message(form,'WhatsApp нөмірін +7 форматында тексеріңіз.');phoneEl.focus();return;
+  }
+  if(!consentEl.checked){message(form,'Деректерді өңдеуге келісім беріңіз.');consentEl.focus();return;}
+  if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(CONFIG.sheetEndpoint)){
+   message(form,'Өтінімді жіберу әлі қосылмаған. Google Sheets өңдегішінің /exec сілтемесін HTML-ге қосу қажет.');
+   return;
+  }
+  const button=form.querySelector('button[type="submit"]');
+  const normPhone='+7'+digits.slice(-10);
+  const data={name,whatsapp:normPhone,consent:'true',source:form.id==='hc-signup-form'?'popup':'footer',program:'HEARTCODE webinar',submittedAt:new Date().toISOString()};
+  const request=CONFIG.endpointFormat==='json'
+    ?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),redirect:'follow'}
+    :{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:new URLSearchParams(data),redirect:'follow'};
+  submitting=true;
+  button.disabled=true;
+  message(form,'Өтінім жіберілуде…');
+  try{
+   const response=await fetch(CONFIG.sheetEndpoint,request);
+   if(!response.ok||response.type==='opaque')throw new Error('Registration was not confirmed');
+   const text=await response.text();
+   if(/^\s*(?:error|fail|false)|<html|<!doctype html/i.test(text))throw new Error('Application rejected registration');
+   let parsed;try{parsed=JSON.parse(text);}catch(e){}
+   if(parsed&&(parsed.success===false||parsed.ok===false||parsed.error))throw new Error('Server rejected registration');
+   for(const f of forms)f.reset();
+   for(const f of forms)message(f,'Тіркелу сәтті аяқталды! Сабаққа қатысу жөніндегі ақпаратты ұйымдастырушылар хабарлайды.');
+   if(/^https:\/\//.test(CONFIG.whatsappRedirect))window.location.assign(CONFIG.whatsappRedirect);
+  }catch(error){
+   message(form,'Өтінімнің сақталғанын растау мүмкін болмады. Қайталап жібермес бұрын тексеріңіз немесе ұйымдастырушыға хабарласыңыз.');
+  }finally{submitting=false;button.disabled=false;}
+ });
+}
+})();
+</script>
+</body></html>
