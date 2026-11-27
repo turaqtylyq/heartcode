@@ -1,171 +1,38 @@
 <!doctype html>
 <html lang="kk">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>HEARTCODE — 1-модульге тегін қолжетімділік</title>
-<style>
-:root{color-scheme:light;--purple:#6b47ac;--ink:#221b37;--pale:#f6f1ff}
-*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#faf9ff}
-.demo-bar{height:52px;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 14px;background:linear-gradient(95deg,#f3ecff,#fff);border-bottom:1px solid #e9dff8;font-size:13px;font-weight:600;text-align:center}
-.demo-bar strong{font-weight:800;color:#603a9e}.demo-icon{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:5px 9px;background:#e9ddff;color:#653f9e;white-space:nowrap;font-size:12px}
-#course{display:block;width:100%;height:calc(100dvh - 52px);border:0;background:white}
-.overlay{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(28,20,48,.54);backdrop-filter:blur(4px)}
-.overlay.open{display:flex}
-.dialog{width:min(100%,420px);background:white;border-radius:22px;padding:30px 25px;box-shadow:0 25px 75px rgba(22,17,48,.25);text-align:center}
-.lockicon{font-size:38px;line-height:1.4;margin-bottom:8px}.dialog h2{font-size:22px;margin:0 0 12px;color:#261b41}
-.dialog p{font-size:15px;line-height:1.65;color:#665e76;margin:0 0 23px}
-.actions{display:flex;flex-direction:column;gap:10px}
-.button{cursor:pointer;min-height:45px;padding:10px 16px;font-size:14px;font-weight:700;border:0;border-radius:12px}
-.primary{background:#6944ac;color:white}.secondary{background:#f2edfa;color:#5f3d9d}
-#feedback{margin-top:9px;font-size:13px;color:#56358c;min-height:17px}
-@media(max-width:540px){.demo-bar{height:57px;padding:5px 9px;font-size:11px;gap:5px}.demo-icon{font-size:10px;padding:5px 6px}#course{height:calc(100dvh - 57px)}.dialog{padding:24px 20px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>HEARTCODE — танысу платформасы</title>
+  <style>
+    :root{color-scheme:light;--ink:#2b2441;--purple:#6b47ae;--muted:#716780}
+    *{box-sizing:border-box}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#fff;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink)}
+    #course{display:block;width:100%;height:100%;height:100dvh;border:0;background:#fff}
+    .preview-modal{position:fixed;inset:0;z-index:2147483647;align-items:center;justify-content:center;padding:20px;background:rgba(27,21,39,.22);backdrop-filter:blur(2px);display:none}
+    .preview-modal.is-open{display:flex}
+    .preview-dialog{width:min(100%,365px);border:1px solid #ece4f6;border-radius:20px;padding:24px 22px 20px;background:#fff;box-shadow:0 18px 54px rgba(44,32,74,.16);text-align:center}
+    .preview-lockicon{width:50px;height:50px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;border-radius:16px;background:#f5f0fc;color:#7151a0;font-size:24px}
+    .preview-dialog h2{margin:0 0 9px;font-size:19px;line-height:1.3;font-weight:750;letter-spacing:-.4px}
+    .preview-dialog p{margin:0 0 18px;font-size:13px;line-height:1.7;color:var(--muted)}
+    .preview-button{width:100%;min-height:43px;background:var(--purple);color:#fff;border:0;border-radius:12px;cursor:pointer;font-size:13px;font-weight:700}
+    .preview-button:hover{background:#5c3998}
+    @media(max-width:560px){.preview-modal{align-items:flex-end;padding:0 12px 14px}.preview-dialog{width:100%;border-radius:19px;padding:21px 19px 18px}.preview-dialog h2{font-size:18px}}
+    @media(prefers-reduced-motion:reduce){.preview-modal{backdrop-filter:none}}
+  </style>
 </head>
 <body>
-<header class="demo-bar">
-  <span class="demo-icon">HEARTCODE · DEMO</span>
-  <span><strong>1-модуль ашық.</strong> Қалған модульдер төлемнен кейін қолжетімді</span>
-</header>
-<iframe id="course" title="HEARTCODE танысу платформасы" src="../index.html?heartcode_preview=1#home" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-<div class="overlay" id="lockDialog" role="dialog" aria-modal="true" aria-labelledby="lockedTitle" aria-hidden="true">
-  <div class="dialog">
-    <div class="lockicon" aria-hidden="true">🔒</div>
-    <h2 id="lockedTitle">Бұл модуль әзірше жабық</h2>
-    <p>Танысу нұсқасында <b>1-модуль толық ашық</b>. 2, 3, 4-модульдер мен қосымша материалдар толық курсты сатып алғаннан кейін қолжетімді болады.</p>
-    <div class="actions">
-      <button class="button primary" type="button" id="goFirst">1-модульге қайту</button>
-      <button class="button secondary" type="button" id="copyRequest">Толық қолжетімділікті сұрау</button>
+  <!-- Same questionnaire and course UI as the main HEARTCODE platform. -->
+  <iframe id="course" title="HEARTCODE оқу платформасы" src="../index.html?heartcode_preview=1#home" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <div id="previewLock" class="preview-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="previewLockTitle" aria-describedby="previewLockText">
+    <div class="preview-dialog">
+      <div class="preview-lockicon" aria-hidden="true">🔒</div>
+      <h2 id="previewLockTitle">Толық қолжетімділік қажет</h2>
+      <p id="previewLockText">Бұл материал толық курсқа төлем жасағаннан кейін ашылады.</p>
+      <button class="preview-button" id="previewOkay" type="button">Түсінікті</button>
     </div>
-    <div id="feedback" role="status" aria-live="polite"></div>
   </div>
-</div>
-<script>
-(function(){
-'use strict';
-var frame=document.getElementById('course');
-var dialog=document.getElementById('lockDialog');
-var feedback=document.getElementById('feedback');
-var navigatingBack=false;
-function lockScreen(){dialog.classList.add('open');dialog.setAttribute('aria-hidden','false');document.getElementById('goFirst').focus();}
-function closeScreen(){dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');feedback.textContent='';}
-function paidRoute(route){
- route=String(route||'').toLowerCase();
- // Route names from the HEARTCODE site: module-3, module-4, m2-lesson-*,
- // bonus-lesson-*. Also deny any later module/lesson routes.
- return /(?:^|[\/#?&'"\s=(])(?:module[-_ ]?[2-9]\d*|m[2-9]\d*[-_ ]?lesson[-_]?\d+|bonus[-_ ]?lesson[-_]?\d*|bonus|treatment|paid-module|lesson[-_ ]?(?:[3-9]|\d{2,}))(?:$|[\/#?&'"\s=);\]_-])/.test(route)
-   || /\b(?:module|модул[ьяіе]?)[^\d]{0,5}[2-9]\d*\b/i.test(route)
-   || /\b[2-9]\d*\s*[-.]?\s*(?:модул[ьяіе]?|module)\b/i.test(route);
-}
-function cardTitlePaid(el){
- if(!el||!el.textContent)return false;
- var t=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().slice(0,350);
- return /^(?:🔒\s*)?(?:(?:[2-9]\d*\s*[-.)]?\s*(?:модул[ьяіе]?|module))|(?:(?:module|модул[ьяіе]?)\s*[№#:]?\s*[2-9]\d*))(?:$|[\\s:—–.,-])/i.test(t);
-}
-function nodeIsPaid(node){
- if(!node||node.nodeType!==1)return false;
- var attrs=['href','onclick','data-page','data-route','data-target','data-section','data-module','aria-controls'];
- for(var i=0;i<attrs.length;i++)if(paidRoute(node.getAttribute(attrs[i])))return true;
- return cardTitlePaid(node);
-}
-function walkLockedTarget(start,doc){
- var node=start;
- for(var n=0;node && node!==doc.body && n<8;n++,node=node.parentElement){
-   if(nodeIsPaid(node))return node;
- }
- return null;
-}
-function addStyle(doc){
- if(doc.getElementById('hc-demo-css'))return;
- var style=doc.createElement('style');style.id='hc-demo-css';
- style.textContent=[
- '.hc-demo-locked{position:relative!important;filter:saturate(.72);}',
- '.hc-demo-locked:after{content:"🔒 Төлемнен кейін қолжетімді";position:absolute;z-index:100;bottom:10px;right:8px;max-width:calc(100% - 16px);border-radius:999px;background:#f4effd;color:#5b3b92;border:1px solid #e7d8ff;padding:7px 10px;font:600 11px/1.3 Arial,sans-serif;box-shadow:0 2px 8px rgba(20,10,40,.08);pointer-events:none;}',
- '.hc-demo-locked a,.hc-demo-locked button{cursor:not-allowed!important;}'
- ].join('\n');
- doc.head.appendChild(style);
-}
-function annotate(doc){
- // Decorate only module navigation/cards, never whole lesson pages.
- var matches=doc.querySelectorAll('a[href],button[onclick],[data-route],[data-page],[data-module],[class*="module-card"],[class*="moduleCard"],[class*="course-card"]');
- var count=0;
- for(var i=0;i<matches.length&&count<1200;i++){
-   var el=matches[i];
-   if(!el.hasAttribute('data-hc-demo-locked') && nodeIsPaid(el)){
-      el.setAttribute('data-hc-demo-locked','1');
-      el.classList.add('hc-demo-locked');
-   }
-   count++;
- }
-}
-function safeRoute(hash){
- var val=String(hash||'').replace(/^#/,'');
- if(!val)return true;
- if(paidRoute('#'+val))return false;
- // Fail closed for unknown actual content routes but keep platform navigation
- // and all first-module routes usable.
- if(/^(?:home|modules?|catalog|courses?|progress|profile|account|settings?|dashboard|about|faq|help|course|content|module[-_]?1|m1[-_].*|lesson[-_]?[12]|intro|welcome)$/i.test(val))return true;
- if(/^(?:module|mod|m\d|lesson|bonus|treatment)[-_]/i.test(val))return false;
- return true;
-}
-function checkRoute(win){
- if(!safeRoute(win.location.hash) && !navigatingBack){
-   navigatingBack=true;
-   // Returning to home avoids revealing a paid lesson on a deep link.
-   win.location.hash='#home';
-   lockScreen();
-   setTimeout(function(){navigatingBack=false;},500);
- }
-}
-function attach(){
- var win,doc;
- try{win=frame.contentWindow;doc=win.document;void doc.body;}catch(err){
-   feedback.textContent='Платформаны осы доменнен ашыңыз.';return;
- }
- if(!doc||!doc.body)return;
- if(doc.documentElement.getAttribute('data-hc-demo-active')==='yes')return;
- doc.documentElement.setAttribute('data-hc-demo-active','yes');
- addStyle(doc);
- function intercept(e){
-   var target=e.target&&e.target.nodeType===3?e.target.parentElement:e.target;
-   if(walkLockedTarget(target,doc)){
-     e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
-     lockScreen();return false;
-   }
- }
- doc.addEventListener('click',intercept,true);
- doc.addEventListener('keydown',function(e){
-   if((e.key==='Enter'||e.key===' ')&&walkLockedTarget(e.target,doc))intercept(e);
- },true);
- win.addEventListener('hashchange',function(){checkRoute(win);refresh();});
- win.addEventListener('popstate',function(){checkRoute(win);refresh();});
- var scheduled=false;
- function refresh(){
-   if(scheduled)return;
-   scheduled=true;
-   win.requestAnimationFrame(function(){scheduled=false;annotate(doc);checkRoute(win);});
- }
- var observer=new win.MutationObserver(refresh);
- observer.observe(doc.body,{childList:true,subtree:true});
- refresh();
- checkRoute(win);
-}
-frame.addEventListener('load',attach);
-if(frame.contentDocument && frame.contentDocument.readyState==='complete')attach();
-document.getElementById('goFirst').addEventListener('click',function(){
- closeScreen();
- try{frame.contentWindow.location.hash='#module-1';}catch(_){/* ignored */}
-});
-document.getElementById('copyRequest').addEventListener('click',function(){
- var message='Сәлеметсіз бе! HEARTCODE ЭКГ курсының толық нұсқасына қолжетімділік алғым келеді. Төлем шарттарын жібере аласыз ба?';
- if(navigator.clipboard&&navigator.clipboard.writeText){
- navigator.clipboard.writeText(message).then(function(){feedback.textContent='Хабарлама көшірілді. Оны HEARTCODE менеджеріне жіберіңіз.';},function(){feedback.textContent=message;});
- }else{feedback.textContent=message;}
-});
-dialog.addEventListener('click',function(e){if(e.target===dialog)closeScreen();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dialog.classList.contains('open'))closeScreen();});
-})();
-</script>
+  <script src="preview.js"></script>
 </body>
 </html>
