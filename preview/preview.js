@@ -42,7 +42,7 @@
     if (!route || freeResources.has(route) || modulePage(route) || route === 'bonus-module') return false;
     if (restrictedRoutes.has(route)) return true;
     // Future lessons/practices should never accidentally become free.
-    return /^(?:m[2-9]\\d*[-_]?lesson[-_]?\\d*|module[-_]?[2-9]\\d*[-_](?:lesson|notes?|tests?|quizzes?|tasks?|assignments?|practices?|videos?)(?:[-_]\\d+)?|bonus[-_](?:lesson|practice|test|notes?)(?:[-_]\\d+)?|lesson[-_]\\d+|notes?[-_]\\d+|tests?[-_]\\d+|quizzes?[-_]\\d+|tasks?[-_]\\d+|assignment[-_]\\d+|practice[-_]\\d+)(?:$|[-_])/.test(route)
+    return /^(?:m[2-9]\d*[-_]?lesson[-_]?\d*|module[-_]?[2-9]\d*[-_](?:lesson|notes?|tests?|quizzes?|tasks?|assignments?|practices?|videos?)(?:[-_]\d+)?|bonus[-_](?:lesson|practice|test|notes?)(?:[-_]\d+)?|lesson[-_]\d+|notes?[-_]\d+|tests?[-_]\d+|quizzes?[-_]\d+|tasks?[-_]\d+|assignment[-_]\d+|practice[-_]\d+)(?:$|[-_])/.test(route)
       || /^(?:treatment|paid-content|video-lesson)/.test(route);
   }
 
