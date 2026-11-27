@@ -175,7 +175,7 @@
       '.hc-demo-locked:after,.hc-preview-paid-card:after{content:none!important;display:none!important;}',
       '.hc-preview-paid-media{position:relative!important;}',
       '.hc-preview-paid-media .hc-preview-media-mask{position:absolute!important;inset:0;z-index:25;',
-      'display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;',
+      'display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;cursor:pointer;',
       'border-radius:14px;background:linear-gradient(140deg,#f6f2fd,#eee8f8);color:#6b5791;',
       'font:600 13px/1.6 Arial,sans-serif;}',
       '.hc-preview-paid-media .hc-preview-media-mask span{max-width:320px;}'
@@ -207,9 +207,13 @@
         }
         const mask = doc.createElement('div');
         mask.className = 'hc-preview-media-mask';
+        mask.setAttribute('role', 'button');
+        mask.setAttribute('tabindex', '0');
+        mask.setAttribute('aria-label', 'Толық бейнесабақты ашу');
         mask.innerHTML = '<span>🔒 Бейнесабақты көру үшін толық қолжетімділік қажет<br><small>Ақпарат алу үшін басыңыз</small></span>';
         wrap.appendChild(mask);
         mask.addEventListener('click', () => showLock('lesson'));
+        mask.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showLock('lesson'); } });
       }
     }
   }
