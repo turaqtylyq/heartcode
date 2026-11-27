@@ -31,7 +31,7 @@
   function paidRoute(value) {
     const route = hash(value);
     if (!route || freeResources.has(route) || modulePage(route)) return false;
-    if (/^(?:m[2-9]\d*[-_]?lesson(?:[-_]\d+)?|bonus[-_]lesson(?:[-_]\d+)?|lesson[-_]\d+|notes?[-_]\d+|tests?[-_]\d+|quizzes?[-_]\d+|task[-_]\d+|assignment[-_]\d+|practice[-_]\d+)(?:$|[-_])/.test(route)) return true;
+    if (/^(?:m[2-9]\d*[-_]?lesson(?:[-_]\d+)?|module[-_]?[2-9]\d*[-_](?:lesson|notes?|tests?|quizzes?|tasks?|assignments?|practices?|videos?)(?:[-_]\d+)?|bonus[-_]lesson(?:[-_]\d+)?|lesson[-_]\d+|notes?[-_]\d+|tests?[-_]\d+|quizzes?[-_]\d+|task[-_]\d+|assignment[-_]\d+|practice[-_]\d+)(?:$|[-_])/.test(route)) return true;
     if (/^(?:treatment|bonus-lesson|paid-content|video-lesson)/.test(route)) return true;
     return false;
   }
