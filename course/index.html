@@ -154,6 +154,45 @@ h1 em{color:var(--purple);font-style:normal}
 .container{width:calc(100% - 32px)}.topline{font-size:10px}.navinner{gap:10px}.logo{font-size:19px}.navlinks{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;margin:0;background:white;border-bottom:1px solid var(--line);padding:19px 18px;flex-direction:column;align-items:stretch;box-shadow:0 15px 30px #3f29502e}.navlinks.open{display:flex}.navlinks a{padding:6px;font-size:14px}.nav .button.small{margin-left:auto;padding:9px 12px}.menu-button{display:block}.hero-grid{padding-top:40px;padding-bottom:33px}.hero-text{text-align:left}.hero-facts,.hero-actions{justify-content:flex-start}.hero h1{font-size:clamp(36px,10vw,49px);letter-spacing:-1.6px;margin:17px 0}.lead{font-size:14px;line-height:1.8;margin-bottom:23px}.hero-actions .button{flex:1;min-width:150px;padding:12px}.hero-facts{gap:10px;font-size:10px}.hero-showcase{min-height:300px}.hero-circle{height:288px;width:100%;max-width:380px;border-radius:28px}.hero-pill{font-size:10px;padding:7px 9px;border-radius:10px}.hero-pill.one{top:13px}.hero-pill.two{bottom:18px}.section{padding:61px 0}.section-title{font-size:29px}.section-intro{font-size:13px}.benefits{grid-template-columns:1fr;gap:10px}.benefit{padding:18px;display:grid;grid-template-columns:43px 1fr;gap:0 13px}.benefit .icon{grid-row:span 2;width:40px;height:40px;margin:0}.benefit h3{font-size:14px;margin:0 0 3px}.benefit p{font-size:12px}.expert-photo{height:340px;margin:0 auto;width:100%}.expert p{font-size:14px}.module summary{padding:14px 13px;gap:11px}.module-index{width:42px;height:42px;min-width:42px;font-size:14px}.module-title b{font-size:14px}.module-title small{font-size:11px}.module-content{padding:0 15px 16px}.topics{grid-template-columns:1fr;gap:6px}.topics li{font-size:12px}.demo-panel{grid-template-columns:1fr;padding:28px 22px;border-radius:22px}.demo-screen{transform:none}.pricing-grid{gap:15px}.plan{padding:23px 19px}.final{padding:53px 0}.footer .container{justify-content:center;text-align:center}.contact-box{padding:20px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Mobile layout polish */
+html,body{max-width:100%;overflow-x:clip}
+.navinner,.hero-grid>*{min-width:0}
+.nav-preview-short{display:none}
+.pricing-whatsapp{min-height:48px}
+@media(max-width:920px){
+.navinner{gap:10px}
+.navlinks{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;margin:0;background:white;border-bottom:1px solid var(--line);padding:18px;flex-direction:column;align-items:stretch;gap:6px;box-shadow:0 15px 30px #3f29502e}
+.navlinks.open{display:flex}.navlinks a{font-size:14px;padding:8px 6px}
+.nav-preview{margin-left:auto}.menu-button{display:block;min-width:39px;min-height:39px}
+}
+@media(max-width:620px){
+.navinner{gap:7px}.logo{font-size:18px;gap:7px;letter-spacing:-.7px}
+.logo-mark{width:32px;height:32px;flex:none}
+.nav-preview-full{display:none}.nav-preview-short{display:inline}
+.nav .button.small{min-width:0;padding:9px 12px;font-size:12px;gap:5px;white-space:nowrap}
+.hero-pill{max-width:90%;font-size:10px;gap:5px}
+.hero-pill.one{left:6px}.hero-pill.two{right:6px}
+.hero-actions .button{min-height:48px}
+.hero-grid,.expert,.pricing-grid,.demo-panel{min-width:0}
+.section-title,.module-title,.plan h3{overflow-wrap:break-word}
+.module summary{align-items:flex-start;min-height:70px}
+.module-content{padding:0 16px 18px}.topics li{overflow-wrap:anywhere}
+.pricing-grid>*{min-width:0}
+.plan .button{white-space:normal;text-align:center;line-height:1.4}
+.final-actions .button{max-width:100%;white-space:normal;min-height:47px}
+}
+@media(max-width:370px){
+.container{width:calc(100% - 26px)}
+.logo{font-size:16px;gap:5px}.logo-mark{width:28px;height:28px;border-radius:9px}
+.logo-mark svg{width:20px;height:20px}
+.nav .button.small{font-size:11px;padding:8px 10px}
+.menu-button{min-width:36px;min-height:36px;padding:5px 8px}
+.hero h1{font-size:34px}
+.hero-actions{flex-direction:column}.hero-actions .button{width:100%}
+.hero-circle{height:260px}.hero-showcase{min-height:272px}
+.final-actions{flex-direction:column}.final-actions .button{width:100%}
+}
 </style>
 </head>
 <body>
@@ -166,7 +205,7 @@ h1 em{color:var(--purple);font-style:normal}
     <nav class="navlinks" id="navlinks" aria-label="Беттегі навигация">
       <a href="#about">Курс туралы</a><a href="#expert">Эксперт</a><a href="#program">Бағдарлама</a><a href="#tariffs">Тарифтер</a>
     </nav>
-    <a href="../preview/" class="button primary small">Платформаны көру <span aria-hidden="true">↗</span></a>
+    <a href="../preview/" class="button primary small nav-preview" aria-label="Платформамен танысу"><span class="nav-preview-full">Платформаны көру</span><span class="nav-preview-short">Көру</span><span aria-hidden="true">↗</span></a>
     <button class="menu-button" id="menu" aria-label="Мәзірді ашу" aria-controls="navlinks" aria-expanded="false">☰</button>
   </div>
 </header>
@@ -291,21 +330,21 @@ h1 em{color:var(--purple);font-style:normal}
         <div class="was">25 000 ₸</div><div class="now">15 000 <small>₸</small></div><div class="price-caption">Жеңілдік бағасы</div>
         <hr>
         <ul><li>ЭКГ онлайн платформасына қолжетімділік</li><li>4 модуль, 16 видеосабақ</li><li>Конспекттер және оқу материалдары</li><li>Тесттер мен тапсырмалар</li><li>Өзіңізге ыңғайлы уақытта оқу</li></ul>
-        <button class="button outline js-plan" type="button" data-name="«Я только спросить»" data-price="15 000 ₸">Осы тарифке қызығамын</button>
+        <a class="button outline pricing-whatsapp" href="https://wa.me/77066884965?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%2C%20%D0%AD%D0%9A%D0%93%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B0%20%D0%B6%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%D0%BF%D0%B5%D0%BD%20%D1%82%D1%96%D1%80%D0%BA%D0%B5%D0%BB%D0%B5%D0%BC%D1%96%D0%BD.%20HEARTCODE%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B4%D0%B0%D2%93%D1%8B%20%C2%AB%D0%AF%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D0%BF%D1%80%D0%BE%D1%81%D0%B8%D1%82%D1%8C%C2%BB%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%D1%96%D0%BD%20%D1%82%D0%B0%D2%A3%D0%B4%D0%B0%D0%B4%D1%8B%D0%BC.%20%D0%96%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%20%D0%B1%D0%B0%D2%93%D0%B0%D1%81%D1%8B%20%E2%80%94%2015%20000%20%E2%82%B8.%20%D0%A2%D0%BE%D0%BB%D1%8B%D2%9B%20%D0%B0%D2%9B%D0%BF%D0%B0%D1%80%D0%B0%D1%82%20%D0%BF%D0%B5%D0%BD%20%D1%82%D3%A9%D0%BB%D0%B5%D0%BC%20%D1%82%D3%99%D1%80%D1%82%D1%96%D0%B1%D1%96%D0%BD%20%D0%B6%D1%96%D0%B1%D0%B5%D1%80%D0%B5%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%3F" target="_blank" rel="noopener noreferrer" aria-label="«Я только спросить» тарифі туралы WhatsApp-қа жазу">WhatsApp арқылы жазу <span aria-hidden="true">↗</span></a>
       </article>
       <article class="plan popular">
         <div class="plan-flag">Топпен оқу</div><div class="plan-label">02 · Куратормен оқу</div><h3>«ЭКГ · Топтық оқу»</h3><p class="plan-desc">Тұрақты қолдау мен тәжірибелік талдау маңызды болса.</p>
         <div class="was">50 000 ₸</div><div class="now">36 000 <small>₸</small></div><div class="price-caption">Жеңілдік бағасы</div>
         <hr>
         <ul><li>Бірінші тарифтің барлық материалдары</li><li>Топтық оқу және куратордың қолдауы</li><li>Үй тапсырмалары мен кері байланыс</li><li>Апта сайын практикалық сабақтар</li><li>Экспертпен онлайн эфирлер, ЭКГ талдау</li></ul>
-        <button class="button primary js-plan" type="button" data-name="«ЭКГ · Топтық оқу»" data-price="36 000 ₸">Осы тарифке қызығамын</button>
+        <a class="button primary pricing-whatsapp" href="https://wa.me/77066884965?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%2C%20%D0%AD%D0%9A%D0%93%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B0%20%D0%B6%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%D0%BF%D0%B5%D0%BD%20%D1%82%D1%96%D1%80%D0%BA%D0%B5%D0%BB%D0%B5%D0%BC%D1%96%D0%BD.%20HEARTCODE%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B4%D0%B0%D2%93%D1%8B%20%C2%AB%D0%AD%D0%9A%D0%93%20%C2%B7%20%D0%A2%D0%BE%D0%BF%D1%82%D1%8B%D2%9B%20%D0%BE%D2%9B%D1%83%C2%BB%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%D1%96%D0%BD%20%D1%82%D0%B0%D2%A3%D0%B4%D0%B0%D0%B4%D1%8B%D0%BC.%20%D0%96%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%20%D0%B1%D0%B0%D2%93%D0%B0%D1%81%D1%8B%20%E2%80%94%2036%20000%20%E2%82%B8.%20%D0%A2%D0%BE%D0%BB%D1%8B%D2%9B%20%D0%B0%D2%9B%D0%BF%D0%B0%D1%80%D0%B0%D1%82%20%D0%BF%D0%B5%D0%BD%20%D1%82%D3%A9%D0%BB%D0%B5%D0%BC%20%D1%82%D3%99%D1%80%D1%82%D1%96%D0%B1%D1%96%D0%BD%20%D0%B6%D1%96%D0%B1%D0%B5%D1%80%D0%B5%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%3F" target="_blank" rel="noopener noreferrer" aria-label="«ЭКГ · Топтық оқу» тарифі туралы WhatsApp-қа жазу">WhatsApp арқылы жазу <span aria-hidden="true">↗</span></a>
       </article>
       <article class="plan">
         <div class="plan-label">03 · Кеңейтілген оқу</div><h3>«ЭКГ + Емдеу тактикасы»</h3><p class="plan-desc">ЭКГ қорытындысын әрі қарай клиникалық тактикамен байланыстыру үшін.</p>
         <div class="was">100 000 ₸</div><div class="now">70 000 <small>₸</small></div><div class="price-caption">Жеңілдік бағасы</div>
         <hr>
         <ul><li>Топтық тарифтің барлық мүмкіндіктері</li><li>Куратор мен эксперттің қолдауы</li><li>Апта сайын практикалық сабақтар</li><li>ЭКГ-ға қатысты емдеу тактикасын талдау</li><li>Клиникалық жағдайларды талқылау</li></ul>
-        <button class="button outline js-plan" type="button" data-name="«ЭКГ + Емдеу тактикасы»" data-price="70 000 ₸">Осы тарифке қызығамын</button>
+        <a class="button outline pricing-whatsapp" href="https://wa.me/77066884965?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%2C%20%D0%AD%D0%9A%D0%93%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B0%20%D0%B6%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%D0%BF%D0%B5%D0%BD%20%D1%82%D1%96%D1%80%D0%BA%D0%B5%D0%BB%D0%B5%D0%BC%D1%96%D0%BD.%20HEARTCODE%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B4%D0%B0%D2%93%D1%8B%20%C2%AB%D0%AD%D0%9A%D0%93%20%2B%20%D0%95%D0%BC%D0%B4%D0%B5%D1%83%20%D1%82%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%D1%81%D1%8B%C2%BB%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%D1%96%D0%BD%20%D1%82%D0%B0%D2%A3%D0%B4%D0%B0%D0%B4%D1%8B%D0%BC.%20%D0%96%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%20%D0%B1%D0%B0%D2%93%D0%B0%D1%81%D1%8B%20%E2%80%94%2070%20000%20%E2%82%B8.%20%D0%A2%D0%BE%D0%BB%D1%8B%D2%9B%20%D0%B0%D2%9B%D0%BF%D0%B0%D1%80%D0%B0%D1%82%20%D0%BF%D0%B5%D0%BD%20%D1%82%D3%A9%D0%BB%D0%B5%D0%BC%20%D1%82%D3%99%D1%80%D1%82%D1%96%D0%B1%D1%96%D0%BD%20%D0%B6%D1%96%D0%B1%D0%B5%D1%80%D0%B5%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%3F" target="_blank" rel="noopener noreferrer" aria-label="«ЭКГ + Емдеу тактикасы» тарифі туралы WhatsApp-қа жазу">WhatsApp арқылы жазу <span aria-hidden="true">↗</span></a>
       </article>
     </div>
     <p class="plan-foot">Көрсетілген бағалар — ағымдағы ұсыныс. Төлем мен қолжетімділік тәртібін курс менеджерінен нақтылауға болады.</p>
@@ -327,20 +366,11 @@ h1 em{color:var(--purple);font-style:normal}
     <span class="eyebrow">HEARTCODE</span>
     <h2>ЭКГ-ны жүйелі үйренуге алғашқы қадам жасаңыз</h2>
     <p>Алдымен платформаны қарап шығыңыз. Оқу форматын кейін өзіңіз таңдайсыз.</p>
-    <div class="final-actions"><a class="button primary" href="../preview/">Платформамен танысу ↗</a><a class="button outline" href="#tariffs">Тарифтерді салыстыру ↑</a></div>
+    <div class="final-actions"><a class="button primary" href="../preview/">Платформамен танысу ↗</a><a class="button outline" href="#tariffs">Тарифтерді салыстыру ↑</a><a class="button outline" href="https://wa.me/77066884965?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%2C%20%D0%AD%D0%9A%D0%93%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D0%B0%20%D0%B6%D0%B5%D2%A3%D1%96%D0%BB%D0%B4%D1%96%D0%BA%D0%BF%D0%B5%D0%BD%20%D1%82%D1%96%D1%80%D0%BA%D0%B5%D0%BB%D0%B5%D0%BC%D1%96%D0%BD.%20HEARTCODE%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%D0%BD%D1%8B%D2%A3%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%D1%82%D0%B5%D1%80%D1%96%20%D0%BC%D0%B5%D0%BD%20%D1%82%D3%A9%D0%BB%D0%B5%D0%BC%20%D0%B6%D0%BE%D0%BB%D1%8B%20%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8B%20%D0%B0%D2%9B%D0%BF%D0%B0%D1%80%D0%B0%D1%82%20%D0%B6%D1%96%D0%B1%D0%B5%D1%80%D0%B5%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%3F" target="_blank" rel="noopener noreferrer">WhatsApp-қа сұрақ қою ↗</a></div>
   </div>
 </section>
 </main>
 <footer class="footer"><div class="container"><b>♡ HEARTCODE</b><span>Медициналық білім беру · Өмірді бірге құтқарайық!</span><span>© <span id="year">2026</span> HEARTCODE</span></div></footer>
-<div class="contact-modal" id="planModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="contact-box">
-    <div class="contact-top"><h3 id="modalTitle">Тариф туралы сұрау</h3><button class="xbutton" type="button" id="modalClose" aria-label="Жабу">×</button></div>
-    <p>Таңдаған тариф бойынша дайын хабарлама. Оны көшіріп, HEARTCODE менеджеріне жібере аласыз.</p>
-    <div class="message-card" id="modalMessage"></div>
-    <button class="button primary" id="copyPlan" type="button">Хабарламаны көшіру</button>
-    <div class="contact-foot" id="copyStatus" role="status" aria-live="polite"></div>
-  </div>
-</div>
 <script>
 (function(){
   'use strict';
@@ -349,22 +379,7 @@ h1 em{color:var(--purple);font-style:normal}
   links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');menu.setAttribute('aria-expanded','false');});});
   document.querySelectorAll('.module').forEach(function(details){details.addEventListener('toggle',function(){if(!details.open)return;document.querySelectorAll('.module').forEach(function(other){if(other!==details)other.open=false;});});});
   document.getElementById('year').textContent=String(new Date().getFullYear());
-  var modal=document.getElementById('planModal'),box=document.getElementById('modalMessage'),status=document.getElementById('copyStatus'),copy=document.getElementById('copyPlan'),close=document.getElementById('modalClose'),priorFocus=null;
-  function closeModal(){modal.classList.remove('open');modal.hidden=true;status.textContent='';if(priorFocus)priorFocus.focus();}
-  document.querySelectorAll('.js-plan').forEach(function(btn){btn.addEventListener('click',function(){
-    priorFocus=btn;
-    var name=btn.getAttribute('data-name'),price=btn.getAttribute('data-price');
-    box.textContent='Сәлеметсіз бе! HEARTCODE курсының '+name+' тарифі қызықтырады. Қазіргі бағасы — '+price+'. Оқу бағдарламасы, төлем және тіркелу туралы толық ақпарат жібересіз бе?';
-    modal.hidden=false;modal.classList.add('open');copy.focus();
-  });});
-  close.addEventListener('click',closeModal);
-  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)closeModal();});
-  copy.addEventListener('click',function(){
-    var text=box.textContent;
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){status.textContent='✓ Хабарлама көшірілді. Оны курс менеджеріне жіберіңіз.';},function(){status.textContent='Мәтінді белгілеп, қолмен көшіріңіз.';});}
-    else{status.textContent='Мәтінді белгілеп, қолмен көшіріңіз.';var selection=window.getSelection(),range=document.createRange();range.selectNodeContents(box);selection.removeAllRanges();selection.addRange(range);}
-  });
+
 })();
 </script>
 </body>
