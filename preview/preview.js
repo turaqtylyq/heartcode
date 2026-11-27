@@ -27,9 +27,13 @@
   const norm = value => String(value == null ? '' : value).trim().toLowerCase();
   const hash = value => norm(value).replace(/^.*#/, '').replace(/^#/, '');
   const modulePage = route => /^module[-_ ]?[1-9]\d*$/.test(hash(route));
-  // Only the first lesson (and its existing module-1 practice/notes) is free.
+  // Only lesson 1 is free to play. Paid lesson detail pages may be previewed,
+  // but their media and materials stay masked by decorate() and shouldLock().
   // All module OVERVIEWS remain navigable, including modules 2-4 and bonus.
   const freeResources = new Set(['lesson-1', 'module-1-practice', 'notes-1', 'note-1', 'test-1', 'quiz-1', 'task-1', 'assignment-1', 'practice-1']);
+  const previewablePaidLessons = new Set([
+    'lesson-2', 'm2-lesson-1', 'm2-lesson-2', 'm2-lesson-3', 'bonus-lesson-1'
+  ]);
   const restrictedRoutes = new Set([
     'lesson-2',
     'm2-lesson-1', 'm2-lesson-2', 'm2-lesson-3',
@@ -85,7 +89,7 @@
   }
   function isAllowedNavigation(element) {
     const route = targetRoute(element);
-    if (modulePage(route)) return true;
+    if (modulePage(route) || previewablePaidLessons.has(route)) return true;
     if (/^(?:home|courses|course|catalog|modules|progress|profile|dashboard|account)$/.test(route)) return true;
     return !!(route && freeResources.has(route));
   }
@@ -93,7 +97,7 @@
     if (!element || !element.getAttribute) return false;
     if (isChatAction(element)) return 'chat';
     const target = targetRoute(element);
-    if (target && paidRoute(target)) return 'lesson';
+    if (target && paidRoute(target) && !previewablePaidLessons.has(target)) return 'lesson';
     if (isAllowedNavigation(element)) return false;
     if (inPaidModule(element) && materialAction(element)) return 'content';
     // When a paid resource uses an external URL from a dedicated paid lesson,
@@ -156,7 +160,7 @@
   function guardRoute() {
     if (!contentWin || redirecting) return;
     const current = hash(contentWin.location.hash);
-    if (!paidPage(current)) return;
+    if (!paidPage(current) || previewablePaidLessons.has(current)) return;
     redirecting = true;
     contentWin.location.hash = '#' + overviewFor(current);
     showLock('lesson');
@@ -246,7 +250,7 @@
     const originalPushState = win.history.pushState.bind(win.history);
     win.history.pushState = function(state, title, url) {
       const requested = typeof url === 'string' && url.includes('#') ? hash(url) : '';
-      if (paidRoute(requested)) { showLock('lesson'); return; }
+      if (paidRoute(requested) && !previewablePaidLessons.has(requested)) { showLock('lesson'); return; }
       return originalPushState(state, title, url);
     };
     win.addEventListener('hashchange', () => { guardRoute();scheduleDecorate(); });
