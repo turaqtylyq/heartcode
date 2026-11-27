@@ -61,7 +61,7 @@ function paidRoute(route){
 function cardTitlePaid(el){
  if(!el||!el.textContent)return false;
  var t=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().slice(0,350);
- return /^(?:🔒\s*)?(?:(?:[2-9]\d*\s*[-.)]?\s*(?:модул[ьяіе]?|module))|(?:(?:module|модул[ьяіе]?)\s*[№#:]?\s*[2-9]\d*))\b/i.test(t);
+ return /^(?:🔒\s*)?(?:(?:[2-9]\d*\s*[-.)]?\s*(?:модул[ьяіе]?|module))|(?:(?:module|модул[ьяіе]?)\s*[№#:]?\s*[2-9]\d*))(?:$|[\\s:—–.,-])/i.test(t);
 }
 function nodeIsPaid(node){
  if(!node||node.nodeType!==1)return false;
