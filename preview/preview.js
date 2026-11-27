@@ -154,14 +154,15 @@
   }
 
   function getStyle(doc) {
-    if (doc.getElementById('hc-preview-style')) return;
+    // Older previews added huge diagonal pseudo-labels to entire module cards.
+    // Remove them completely, including in cached page states.
+    const previous = doc.getElementById('hc-demo-css');
+    if (previous) previous.remove();
+    if (doc.getElementById('hc-preview-style')) doc.getElementById('hc-preview-style').remove();
     const css = doc.createElement('style');
     css.id = 'hc-preview-style';
     css.textContent = [
-      '.hc-preview-paid-card{position:relative!important;}',
-      '.hc-preview-paid-card:after{content:"🔒 Төлемнен кейін";position:absolute;bottom:7px;right:9px;padding:4px 8px;',
-      'background:#f3effa;color:#76569a;border:1px solid #e9e0f6;border-radius:30px;',
-      'font:600 10px/1.3 Arial,sans-serif;pointer-events:none;opacity:.94;}',
+      '.hc-demo-locked:after,.hc-preview-paid-card:after{content:none!important;display:none!important;}',
       '.hc-preview-paid-media{position:relative!important;}',
       '.hc-preview-paid-media .hc-preview-media-mask{position:absolute!important;inset:0;z-index:25;',
       'display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;',
@@ -172,14 +173,11 @@
     doc.head.appendChild(css);
   }
   function decorate(doc) {
-    const actions = doc.querySelectorAll('a[href],button,[role="button"],[onclick],[data-route],[data-target],.public-resource,.row-action,.lesson');
-    for (const item of actions) {
-      const why = shouldLock(item);
-      const isCard = item.matches('.card.lesson,.lesson-list a,.lesson-box a,.public-resource,.row-action') || item.closest('.lesson-list') !== null;
-      if (why && isCard && !item.classList.contains('hc-preview-paid-card')) {
-        item.classList.add('hc-preview-paid-card');
-      }
-      if (!why && item.classList.contains('hc-preview-paid-card')) item.classList.remove('hc-preview-paid-card');
+    // All module cards are ordinary navigable links: no lock labels or overlays.
+    // Restrictions happen only when an actual lesson/material/chat is opened.
+    for (const el of doc.querySelectorAll('.hc-demo-locked,.hc-preview-paid-card,[data-hc-demo-locked]')) {
+      el.classList.remove('hc-demo-locked', 'hc-preview-paid-card');
+      el.removeAttribute('data-hc-demo-locked');
     }
     // Never load embedded paid videos in the preview frame; still not a security boundary
     // because the full public course is hosted separately.
