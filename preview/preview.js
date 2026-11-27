@@ -27,13 +27,23 @@
   const norm = value => String(value == null ? '' : value).trim().toLowerCase();
   const hash = value => norm(value).replace(/^.*#/, '').replace(/^#/, '');
   const modulePage = route => /^module[-_ ]?[1-9]\d*$/.test(hash(route));
-  const freeResources = new Set(['lesson-1', 'notes-1', 'note-1', 'test-1', 'quiz-1', 'task-1', 'assignment-1', 'practice-1']);
+  // Only the first lesson (and its existing module-1 practice/notes) is free.
+  // All module OVERVIEWS remain navigable, including modules 2-4 and bonus.
+  const freeResources = new Set(['lesson-1', 'module-1-practice', 'notes-1', 'note-1', 'test-1', 'quiz-1', 'task-1', 'assignment-1', 'practice-1']);
+  const restrictedRoutes = new Set([
+    'lesson-2',
+    'm2-lesson-1', 'm2-lesson-2', 'm2-lesson-3',
+    'module-2-practice', 'module-3-practice', 'module-4-practice',
+    'm3-lesson-1', 'm4-lesson-1',
+    'bonus-lesson-1'
+  ]);
   function paidRoute(value) {
     const route = hash(value);
-    if (!route || freeResources.has(route) || modulePage(route)) return false;
-    if (/^(?:m[2-9]\d*[-_]?lesson(?:[-_]\d+)?|module[-_]?[2-9]\d*[-_](?:lesson|notes?|tests?|quizzes?|tasks?|assignments?|practices?|videos?)(?:[-_]\d+)?|bonus[-_]lesson(?:[-_]\d+)?|lesson[-_]\d+|notes?[-_]\d+|tests?[-_]\d+|quizzes?[-_]\d+|task[-_]\d+|assignment[-_]\d+|practice[-_]\d+)(?:$|[-_])/.test(route)) return true;
-    if (/^(?:treatment|bonus-lesson|paid-content|video-lesson)/.test(route)) return true;
-    return false;
+    if (!route || freeResources.has(route) || modulePage(route) || route === 'bonus-module') return false;
+    if (restrictedRoutes.has(route)) return true;
+    // Future lessons/practices should never accidentally become free.
+    return /^(?:m[2-9]\\d*[-_]?lesson[-_]?\\d*|module[-_]?[2-9]\\d*[-_](?:lesson|notes?|tests?|quizzes?|tasks?|assignments?|practices?|videos?)(?:[-_]\\d+)?|bonus[-_](?:lesson|practice|test|notes?)(?:[-_]\\d+)?|lesson[-_]\\d+|notes?[-_]\\d+|tests?[-_]\\d+|quizzes?[-_]\\d+|tasks?[-_]\\d+|assignment[-_]\\d+|practice[-_]\\d+)(?:$|[-_])/.test(route)
+      || /^(?:treatment|paid-content|video-lesson)/.test(route);
   }
 
   function titleText(element) {
@@ -57,8 +67,8 @@
     return found ? found[1] : '';
   }
   function viewRoute(element) {
-    const view = element.closest('.view[data-view],section[data-view],[data-page]');
-    return view ? norm(view.getAttribute('data-view') || view.getAttribute('data-page')) : '';
+    const view = element.closest('.view[data-page],section[data-page],.view[data-view],section[data-view]');
+    return view ? norm(view.getAttribute('data-page') || view.getAttribute('data-view')) : '';
   }
   function inPaidModule(element) {
     const route = viewRoute(element);
@@ -181,9 +191,9 @@
     }
     // Never load embedded paid videos in the preview frame; still not a security boundary
     // because the full public course is hosted separately.
-    const views = doc.querySelectorAll('.view[data-view]');
+    const views = doc.querySelectorAll('.view[data-page],.view[data-view]');
     for (const section of views) {
-      const view = norm(section.dataset.view);
+      const view = norm(section.dataset.page || section.dataset.view);
       if (view === 'lesson-1') continue;
       const videos = section.querySelectorAll('.lesson-video,.video-container,.video-wrapper,iframe[src*="youtube"],iframe[src*="vimeo"],video');
       for (const media of videos) {
@@ -197,7 +207,7 @@
         }
         const mask = doc.createElement('div');
         mask.className = 'hc-preview-media-mask';
-        mask.innerHTML = '<span>🔒 Бейнесабақ толық курсқа төлем жасағаннан кейін ашылады</span>';
+        mask.innerHTML = '<span>🔒 Бейнесабақты көру үшін толық қолжетімділік қажет<br><small>Ақпарат алу үшін басыңыз</small></span>';
         wrap.appendChild(mask);
         mask.addEventListener('click', () => showLock('lesson'));
       }
@@ -227,10 +237,18 @@
     doc.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') intercept(event);
     }, true);
+    // Main platform uses history.pushState() and render() directly;
+    // that does not trigger a hashchange event. Guard it explicitly too.
+    const originalPushState = win.history.pushState.bind(win.history);
+    win.history.pushState = function(state, title, url) {
+      const requested = typeof url === 'string' && url.includes('#') ? hash(url) : '';
+      if (paidRoute(requested)) { showLock('lesson'); return; }
+      return originalPushState(state, title, url);
+    };
     win.addEventListener('hashchange', () => { guardRoute();scheduleDecorate(); });
     win.addEventListener('popstate', () => { guardRoute();scheduleDecorate(); });
     activeObserver = new win.MutationObserver(scheduleDecorate);
-    activeObserver.observe(doc.body, { childList:true, subtree:true });
+    activeObserver.observe(doc.body, { childList:true, attributes:true, attributeFilter:['class'], subtree:true });
     guardRoute();
     scheduleDecorate();
   }
